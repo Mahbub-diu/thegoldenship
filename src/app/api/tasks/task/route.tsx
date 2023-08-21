@@ -20,7 +20,7 @@ export const POST = async (req: NextRequest) => {
   try {
     const task = await prisma.task.create({
       data: {
-        title,
+        title:title??content,
         content,
         published,
         status,
