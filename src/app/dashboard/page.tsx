@@ -8,7 +8,7 @@ import moment from "moment";
 
 function Dashboard() {
   const { data: session } = useSession();
-  let [coreTask, setCoreTask] = useState([]);
+  let [coreTask, setCoreTask] = useState<any[]>([]);
   let [taskData, setTaskData] = useState({
     title: "",
     content: "",
