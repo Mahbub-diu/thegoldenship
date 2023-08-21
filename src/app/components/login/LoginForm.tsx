@@ -18,7 +18,7 @@ export const LoginForm = () => {
     e.preventDefault();
     setLoading(true);
     let data = await signIn("google", {
-      callbackUrl: "http://localhost:3000/dashboard",
+      callbackUrl: "/dashboard",
 
       redirect: true,
     });
@@ -36,7 +36,7 @@ export const LoginForm = () => {
       redirect: false,
       email: signInData.email,
       password: signInData.password,
-      callbackUrl: "http://localhost:3000/",
+      callbackUrl: "/",
     });
     setLoading(false);
     console.log(data);
