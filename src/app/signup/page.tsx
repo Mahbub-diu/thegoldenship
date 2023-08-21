@@ -22,7 +22,7 @@ const SignUp = () => {
   ) => {
     e.preventDefault();
     let data = await signIn("google", {
-      callbackUrl: "http://localhost:3000/dashboard",
+      callbackUrl: "/dashboard",
 
       redirect: true,
     });
@@ -53,7 +53,7 @@ const SignUp = () => {
           redirect: false,
           email: signInData.email,
           password: signInData.password,
-          callbackUrl: "http://localhost:3000/",
+          callbackUrl: "/",
         });
         if (data?.error) {
           return false;
