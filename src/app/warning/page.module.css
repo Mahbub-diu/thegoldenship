@@ -1,0 +1,371 @@
+/* 
+body{
+  
+} */
+
+.main {
+  color: #FFFFFF;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  max-width: 1000px;
+  margin-bottom: 60px;
+  /* min-height: 100vh; */
+}
+
+.main h1{
+  font-family: "SF Pro Display";
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 38px;
+  letter-spacing: 0em;
+  text-align: left;
+
+}
+
+.header{
+  margin-top: 100px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  /* height: 300px; */
+  margin-bottom: 50px;
+}
+
+.header .leftSection{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 15px;
+}
+
+.header .leftSection h1{
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 38px;
+    letter-spacing: 0em;
+    text-align: left;
+    margin-bottom: 0px;
+
+}
+
+.header .rightSection{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.content .subtitle{
+  margin-top: 20px;
+  padding: 10px 50px;
+  background-color: #C50000;
+  font-size: 19px;
+  font-weight: 700;
+  line-height: 38px;
+  letter-spacing: 0em;
+  text-align: left;
+
+}
+
+.content .description{
+  width: 100%;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 38px;
+  letter-spacing: 0em;
+  text-align: center;
+  color: #575757;
+}
+
+.grid{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 30px;
+}
+
+.grid .project_name{
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 38px;
+  letter-spacing: 0em;
+  text-align: center;
+  margin-bottom: 30px;
+  
+
+}
+
+.grid .startNewBtn {
+  cursor: pointer;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 38px;
+  letter-spacing: 0em;
+  text-align: center;
+  width: 100%;
+  max-width: 767px;
+  padding: 10px;
+  background-color: #555555;
+  color: #222222;
+  position: relative;
+
+
+}
+
+/* Add hollow circle for startNewBtn on the left side */
+.grid .startNewBtn.circle::before{
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: -5%;
+  width: 20px;
+  height: 20px;
+  /* background-color: #FFFFFF; */
+  border: 2px solid #FFFFFF;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.grid .projectBtn{
+  cursor: pointer;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 38px;
+  letter-spacing: 0em;
+  text-align: center;
+  width: 100%;
+  max-width: 767px;
+  padding: 10px;
+  background-color: #7A00F3;
+  color: #FFFFFF;
+  position: relative;
+}
+
+/* Add hollow circle for projectBtn on the left side */
+.grid .projectBtn::before{
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: -5%;
+  width: 20px;
+  height: 20px;
+  /* background-color: #FFFFFF; */
+  border: 2px solid #FFFFFF;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.grid .projectBtn.completed{
+  background-color: #00C920;
+  position: relative;
+}
+
+/* add completed circle and line down from circle for completed project */
+.grid .projectBtn.completed::before{
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: -5%;
+  width: 20px;
+  height: 20px;
+  background-color: #FFFFFF;
+  border: none;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+}
+
+
+/* add cross line on completed */
+.grid .projectBtn.completed::after{
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: -5%;
+  width: 110%;
+  height: 2px;
+  background-color: #FFFFFF;
+}
+/* add line that connects to the bottom button */
+.grid .projectBtn.completed::after{
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: -5%;
+  width: 110%;
+  height: 140%;
+  /* border: solid #FFFFFF; */
+  border-top: 2px solid #FFFFFF;
+  border-left: 1px solid #FFFFFF;
+  background-color: transparent;
+}
+
+.modelContent{
+  background-color: #555555;
+  color: #FFFFFF;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  /* background-color: red; */
+}
+
+.modelBodyClose{
+  color: #FFFFFF;
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 38px;
+  letter-spacing: 0em;
+  text-align: center;
+  padding: 10px;
+  cursor: pointer;
+
+}
+
+.modelBodyContent{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+}
+
+.modelBodyContent h1{
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 38px;
+  letter-spacing: 0em;
+  text-align: center;
+  color: #FFFFFF;
+
+}
+
+.modelBodyContent .modelBodyContentTitleInput{
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 38px;
+  letter-spacing: 0em;
+  text-align: center;
+  color: #FFFFFF;
+  width: 100%;
+  background-color: transparent;
+  border: none;
+  appearance: none;
+  outline: none;
+
+}
+
+.modelBodyContentTitleInput::placeholder{
+  color: #FFFFFF;
+}
+.modelBodyContentDescriptionInput{
+  width: 100%;
+  max-width: 518px;
+  background-color: #D9D9D9;
+  padding: 2%;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 16px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: #2E2E2E;
+
+}
+
+.confirm {
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 38px;
+  letter-spacing: 0em;
+  text-align: center;
+  color: #FFFFFF;
+}
+
+.confirmed {
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 38px;
+  letter-spacing: 0em;
+  text-align: center;
+  width: 100%;
+  /* display: flex; */
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  display: none;
+
+}
+
+.confirmed.visible{
+  display: flex;
+}
+
+.confirmed .confirmedInput {
+  width: 100%;
+  max-width: 413px;
+  max-height: 35px;
+  background-color: #D9D9D9;
+  outline: none;
+  appearance: none;
+  border: none;
+  padding: 10px;
+  margin-bottom: 30px;
+
+}
+
+.confirmed .confirmedBtn{
+  background-color: #FF0000;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 38px;
+  letter-spacing: 0em;
+  text-align: center;
+  width: 100%;
+  max-width: 444px;
+  padding: 20px;
+  cursor: pointer;
+
+}
+
+.completeTaskBtn{
+  background-color: #04B600;
+  max-width: 385px;
+  border-radius: 13px;
+  padding: 10px;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 38px;
+  letter-spacing: 0em;
+  text-align: center;
+  color: #FFFFFF;
+  margin-bottom: 30px;
+
+
+}
+
+.unCompleteTaskBtn{
+  background-color: #F17400;
+  max-width: 276px;
+  border-radius: 6px;
+  padding: 10px;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 38px;
+  letter-spacing: 0em;
+  text-align: center;
+  color: #FFFFFF;
+  /* margin-bottom: 30px; */
+
+}

@@ -1,0 +1,16 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  background-color: #1A1B1C !important;
+  color: #FFFFFF !important;
+  display: flex !important;
+  flex-direction: row !important;
+  justify-content: center !important;
+  align-items: flex-start !important;
+  height: 100% !important;
+  min-height: 100vh !important;
+  /* padding: 0px 10%; */
+}
