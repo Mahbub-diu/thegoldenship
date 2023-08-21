@@ -7,11 +7,31 @@ import axios from "axios";
 import moment from "moment";
 
 function Dashboard() {
-  let [coreTask, setCoreTask] = useState([]);
   const { data: session } = useSession();
-  const getCoreTask = async () => {};
+  let [coreTask, setCoreTask] = useState([]);
+  let [taskData, setTaskData] = useState({
+    title: "",
+    content: "",
+    authorId: "",
+  });
+
+  const getCoreTask = async () => {
+    let res = await axios.get("/api/tasks/task");
+    console.log(res);
+    setCoreTask(res.data);
+  };
+  const addTask = async () => {
+    let res = await axios.post("/api/tasks/task", {
+      ...taskData,
+      authorId: session?.user?.id,
+    });
+    console.log(res);
+    setCoreTask((state) => [...state, res.data]);
+    setTaskData({ ...taskData, title: "", content: "" });
+  };
   useEffect(() => {
-    //getCoreTask();
+    setTaskData({ ...taskData, authorId: session?.user?.id });
+    getCoreTask();
   }, []);
   return (
     <>
@@ -35,7 +55,7 @@ function Dashboard() {
                           {moment().format("MMMM Do YYYY, h:mm:ss a")}
                         </p>
                       </p>
-                      <p >
+                      <p>
                         <button
                           onClick={() => signOut()}
                           className="btn btn-danger"
@@ -56,78 +76,39 @@ function Dashboard() {
                   <h2 className="dash-card-title">Core Tasks</h2>
                 </div>
                 <div className="checked-tasks">
-                  <div className="single-task-flex">
-                    <div className="check-icon">
-                      <div className="form-check">
-                        <input
-                          className="form-check-input"
-                          type="checkbox"
-                          value=""
-                          id="flexCheckDefault"
-                          checked
-                        />
+                  {coreTask?.map((task: any) => (
+                    <div className="single-task-flex" key={task.id}>
+                      <div className="check-icon">
+                        <div className="form-check">
+                          <input
+                            className="form-check-input"
+                            type="checkbox"
+                            value=""
+                            id="flexCheckDefault"
+                            checked
+                          />
+                        </div>
+                      </div>
+                      <div className="task-box">
+                        <button
+                          className="btn check-task-btn"
+                          data-bs-toggle="modal"
+                          data-bs-target="#exampleModal"
+                        >
+                          {task.title}
+                        </button>
                       </div>
                     </div>
-                    <div className="task-box">
-                      <button
-                        className="btn check-task-btn"
-                        data-bs-toggle="modal"
-                        data-bs-target="#exampleModal"
-                      >
-                        Completed 20 min Yoga
-                      </button>
-                    </div>
-                  </div>
-                  <div className="single-task-flex">
-                    <div className="check-icon">
-                      <div className="form-check">
-                        <input
-                          className="form-check-input"
-                          type="checkbox"
-                          value=""
-                          id="flexCheckDefault"
-                          checked
-                        />
-                      </div>
-                    </div>
-                    <div className="task-box">
-                      <button
-                        className="btn check-task-btn"
-                        data-bs-toggle="modal"
-                        data-bs-target="#exampleModal"
-                      >
-                        Completed 2h Deep Work
-                      </button>
-                    </div>
-                  </div>
-                  <div className="single-task-flex">
-                    <div className="check-icon">
-                      <div className="form-check">
-                        <input
-                          className="form-check-input"
-                          type="checkbox"
-                          value=""
-                          id="flexCheckDefault"
-                          checked
-                        />
-                      </div>
-                    </div>
-                    <div className="task-box">
-                      <button
-                        className="btn check-task-btn"
-                        data-bs-toggle="modal"
-                        data-bs-target="#exampleModal"
-                      >
-                        Completed Day 14 of intuitive connect
-                      </button>
-                    </div>
-                  </div>
+                  ))}
                   <div className="single-task-input">
                     <input
                       type="text"
                       className="form-control"
                       id="exampleFormControlInput1"
                       placeholder="Type weekly intention here..."
+                      onChange={(e: any) => {
+                        setTaskData({ ...taskData, title: e.target.value });
+                      }}
                     />
                   </div>
                   <div className="single-task-input">
@@ -136,10 +117,13 @@ function Dashboard() {
                       className="form-control"
                       id="exampleFormControlInput1"
                       placeholder="Type weekly intention here..."
+                      onChange={(e) => {
+                        setTaskData({ ...taskData, content: e.target.value });
+                      }}
                     />
                   </div>
                   <div className="add-task-btn-wrapper">
-                    <button className="add-task-btn">
+                    <button className="add-task-btn" onClick={addTask}>
                       <img src="./assets/images/icon/plus_w.png" alt="" />
                       Add Task
                     </button>
