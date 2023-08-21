@@ -23,7 +23,7 @@ function Dashboard() {
   const addTask = async () => {
     let res = await axios.post("/api/tasks/task", {
       ...taskData,
-      authorId: session?.user?.id,
+      authorId: session?.user?.id ?? null,
     });
     console.log(res);
     setCoreTask((state) => [...state, res.data]);
@@ -76,7 +76,7 @@ function Dashboard() {
                   <h2 className="dash-card-title">Core Tasks</h2>
                 </div>
                 <div className="checked-tasks">
-                  {coreTask?.map((task: any) => (
+                  {coreTask?.map((task) => (
                     <div className="single-task-flex" key={task.id}>
                       <div className="check-icon">
                         <div className="form-check">
@@ -106,7 +106,7 @@ function Dashboard() {
                       className="form-control"
                       id="exampleFormControlInput1"
                       placeholder="Type weekly intention here..."
-                      onChange={(e: any) => {
+                      onChange={(e) => {
                         setTaskData({ ...taskData, title: e.target.value });
                       }}
                     />
