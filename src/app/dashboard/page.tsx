@@ -12,7 +12,7 @@ function Dashboard() {
   let [taskData, setTaskData] = useState({
     title: "",
     content: "",
-    authorId: "",
+    authorId: null,
   });
 
   const getCoreTask = async () => {
