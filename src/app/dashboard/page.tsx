@@ -474,11 +474,7 @@ function Dashboard() {
                                 name="vehicle1"
                                 value="Bike"
                               />
-<<<<<<< HEAD
-                              <label htmlhtmlFor="vehicle1">
-=======
                               <label htmlFor="vehicle1">
->>>>>>> 0e1ad238f1be9491eb3749bd603185feff28707c
                                 Big Goal of the Week - Complete the Main Layouts
                                 for Kaizen Flow
                               </label>
@@ -490,11 +486,7 @@ function Dashboard() {
                                     name="vehicle2"
                                     value="Car"
                                   />
-<<<<<<< HEAD
-                                  <label htmlhtmlFor="vehicle2">
-=======
                                   <label htmlFor="vehicle2">
->>>>>>> 0e1ad238f1be9491eb3749bd603185feff28707c
                                     Main Elements - Main Dashboard, Journey &
                                     Calendar Dashboard (+Progress?)
                                   </label>
@@ -506,11 +498,7 @@ function Dashboard() {
                                     name="vehicle3"
                                     value="Boat"
                                   />
-<<<<<<< HEAD
-                                  <label htmlhtmlFor="vehicle3">
-=======
                                   <label htmlFor="vehicle3">
->>>>>>> 0e1ad238f1be9491eb3749bd603185feff28707c
                                     Main Elements - Main Dashboard, Journey &
                                     Calendar Dashboard (+Progress?)
                                   </label>
@@ -524,11 +512,7 @@ function Dashboard() {
                                 name="vehicle2"
                                 value="Car"
                               />
-<<<<<<< HEAD
-                              <label htmlhtmlFor="vehicle2">
-=======
                               <label htmlFor="vehicle2">
->>>>>>> 0e1ad238f1be9491eb3749bd603185feff28707c
                                 Breakdown of Main Elements to Include of the
                                 Application
                               </label>
@@ -540,11 +524,7 @@ function Dashboard() {
                                 name="vehicle3"
                                 value="Boat"
                               />
-<<<<<<< HEAD
-                              <label htmlhtmlFor="vehicle3">
-=======
                               <label htmlFor="vehicle3">
->>>>>>> 0e1ad238f1be9491eb3749bd603185feff28707c
                                 Main Elements - Main Dashboard, Journey &
                                 Calendar Dashboard (+Progress?)
                               </label>
