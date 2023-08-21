@@ -1,0 +1,937 @@
+@charset "UTF-8";
+.common-progressbar-main .multi-steps > li.is-active ~ li:before, .common-progressbar-main .multi-steps > li.is-active:before {
+  content: counter(stepNum);
+  font-family: inherit;
+  font-weight: 500;
+}
+.common-progressbar-main .multi-steps > li.is-active ~ li:after, .common-progressbar-main .multi-steps > li.is-active:after {
+  border: 1px solid #333636;
+}
+
+.common-progressbar-main {
+  margin-top: 20px;
+}
+.common-progressbar-main .multi-steps {
+  display: table;
+  table-layout: fixed;
+  width: 100%;
+}
+.common-progressbar-main .multi-steps > li {
+  counter-increment: stepNum;
+  text-align: center;
+  display: table-cell;
+  position: relative;
+  color: #fff;
+}
+.common-progressbar-main .multi-steps > li:before {
+  content: "\f00c";
+  content: "✓;";
+  content: "𐀃";
+  content: "𐀄";
+  content: "✓";
+  display: block;
+  margin: 0 auto 4px;
+  background-color: #fff;
+  width: 36px;
+  height: 36px;
+  line-height: 32px;
+  text-align: center;
+  font-weight: bold;
+  position: relative;
+  z-index: 9;
+  border-width: 2px;
+  border-style: solid;
+  border-color: tomato;
+  border-radius: 50%;
+}
+.common-progressbar-main .multi-steps > li:after {
+  content: "";
+  height: 8px;
+  width: 100%;
+  position: absolute;
+  top: 16px;
+  left: 50%;
+  z-index: 0;
+}
+.common-progressbar-main .multi-steps > li:last-child:after {
+  display: none;
+}
+.common-progressbar-main .multi-steps > li.is-active:before {
+  background-color: #7a00f3;
+  border-color: #7a00f3;
+}
+.common-progressbar-main .multi-steps > li.is-active ~ li {
+  color: #fff;
+}
+.common-progressbar-main .multi-steps > li.is-active ~ li:before {
+  background-color: #333636;
+  border-color: #333636;
+}
+
+.mb-20 {
+  margin-bottom: 20px;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Neue Machina";
+  color: #7f8283;
+  scroll-behavior: smooth;
+  background-color: #1a1b1c;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+ul li {
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+button:focus {
+  box-shadow: none;
+  outline: none;
+}
+
+input:focus {
+  box-shadow: none;
+  outline: none;
+}
+
+img {
+  max-width: 100%;
+}
+
+.login-main {
+  background-color: #1a1b1c;
+  width: 100%;
+  height: 100vh;
+}
+.login-main .login-parent {
+  position: relative;
+  height: 100vh;
+}
+.login-main .login-parent .login-box {
+  width: 412px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+}
+.login-main .login-parent .login-box .logo-box {
+  text-align: center;
+  margin-bottom: 30px;
+}
+.login-main .login-parent .login-box .title-box {
+  text-align: center;
+  margin-bottom: 20px;
+}
+.login-main .login-parent .login-box .title-box h3 {
+  font-family: "SF Pro Display";
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 28px;
+  line-height: 38px;
+  margin-bottom: 0;
+}
+.login-main .login-parent .login-box .form-group {
+  margin-bottom: 20px;
+}
+.login-main .login-parent .login-box .form-label {
+  font-family: "SF Pro Display";
+  font-size: 18px;
+  line-height: 28px;
+  font-weight: 400;
+  color: #ffffff;
+  text-transform: capitalize;
+  margin-bottom: 20px;
+}
+.login-main .login-parent .login-box .form-control {
+  padding: 12px 24px;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  border: 1px solid #333636;
+  background-color: #1a1b1c;
+  color: #ffffff;
+  font-family: "SF Pro Display";
+}
+.login-main .login-parent .login-box .form-control:focus {
+  box-shadow: none;
+  outline: none;
+}
+.login-main .login-parent .login-box a.forget-pass {
+  display: block;
+  color: #7f8283;
+  font-size: 16px;
+  line-height: 26px;
+  font-family: "SF Pro Display";
+  font-weight: 400;
+}
+.login-main .login-parent .login-box ::-moz-placeholder {
+  color: #7f8283;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 24px;
+  font-family: "SF Pro Display";
+}
+.login-main .login-parent .login-box ::placeholder {
+  color: #7f8283;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 24px;
+  font-family: "SF Pro Display";
+}
+.login-main .login-parent .login-box .login-btn {
+  background: #7a00f3;
+  color: #ffffff;
+  width: 100%;
+  padding: 8px 24px;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  text-transform: capitalize;
+  font-family: "SF Pro Display";
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 28px;
+  margin-top: 20px;
+}
+.login-main .login-parent .login-box .reg-divider {
+  margin: 20px 0;
+  text-align: center;
+  font-size: 14px;
+  line-height: 24px;
+  color: #7f8283;
+  font-family: "SF Pro Display";
+  font-weight: 500;
+}
+.login-main .login-parent .login-box .google-login-btn {
+  background: #333636;
+  color: #ffffff;
+  width: 100%;
+  padding: 8px 24px;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  font-family: "SF Pro Display";
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 28px;
+  margin-bottom: 20px;
+}
+.login-main .login-parent .login-box .google-login-btn span {
+  margin-right: 5px;
+}
+.login-main .login-parent .login-box .google-login-btn span img {
+  width: 24px;
+  height: 24px;
+}
+.login-main .login-parent .login-box .google-login-btn:focus {
+  box-shadow: none;
+  outline: none;
+}
+.login-main .login-parent .login-box h5 {
+  font-family: "SF Pro Display";
+  font-size: 16px;
+  font-weight: 400;
+  text-align: center;
+  color: #ffffff;
+  line-height: 26px;
+}
+.login-main .login-parent .login-box a.sign-link {
+  color: #b266ff;
+  font-family: "SF Pro Display";
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 28px;
+  text-align: center;
+}
+
+.dashboard-main {
+  background-color: #1a1b1c;
+  width: 100%;
+  min-height: 100vh;
+  padding: 28px;
+  margin-bottom: 100px;
+}
+.dashboard-main .dashboard-header-main {
+  margin-bottom: 28px;
+}
+.dashboard-main .dashboard-header-main .header-flex {
+  display: flex;
+  flex-wrap: wrap;
+}
+.dashboard-main .dashboard-header-main .header-flex .icon-box {
+  flex-basis: 40px;
+  margin-right: 20px;
+}
+.dashboard-main .dashboard-header-main .header-flex .header-box {
+  flex-basis: calc(100% - 60px);
+}
+.dashboard-main .dashboard-header-main .header-flex .header-box h1.dashboard-title {
+  font-family: "SF Pro Display";
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 38px;
+  color: #ffffff;
+  text-transform: capitalize;
+}
+.dashboard-main .dashboard-header-main .header-flex .header-box p.dates {
+  font-family: "SF Pro Display";
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 24px;
+  color: #7f8283;
+  text-transform: capitalize;
+  margin-bottom: 0;
+}
+.dashboard-main .dashboard-card-col:nth-last-child(-n+2) {
+  margin-bottom: 0;
+}
+.dashboard-main .dashboard-card-col .dashboard-card {
+  padding: 24px;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  background: #222424;
+}
+.dashboard-main .dashboard-card-col .dashboard-card .dashboard-card-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+.dashboard-main .dashboard-card-col .dashboard-card .dashboard-card-header h2.dash-card-title {
+  font-family: "SF Pro Display";
+  font-weight: 700;
+  font-size: 28px;
+  line-height: 38px;
+  text-transform: capitalize;
+  color: #ffffff;
+  margin-bottom: 0;
+}
+.dashboard-main .dashboard-card-col .dashboard-card .dashboard-card-header .spritual-card-title {
+  font-family: "Tangerine", cursive;
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 38px;
+  text-transform: capitalize;
+  color: #ffffff;
+  margin-bottom: 0;
+}
+.dashboard-main .dashboard-card-col .dashboard-card .dashboard-card-header .day h4 {
+  font-size: 16px;
+  font-weight: 400;
+  margin-bottom: 0;
+  margin-top: 5px;
+  margin-left: 8px;
+  margin-right: 8px;
+}
+.dashboard-main .dashboard-card-col .dashboard-card .dashboard-card-header .day a {
+  width: 24px;
+  height: 24px;
+}
+.dashboard-main .dashboard-card-col .dashboard-card .calendar-grid-main {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-gap: 15px;
+}
+.dashboard-main .dashboard-card-col .dashboard-card .calendar-grid-main .single-day-box .day-title {
+  background: #292a2a;
+  padding: 8px 16px;
+  text-align: center;
+  color: #fff;
+  font-size: 14px;
+  text-transform: capitalize;
+  font-weight: 700;
+  font-family: "SF Pro Display";
+  line-height: 16.71px;
+  margin-bottom: 15px;
+}
+.dashboard-main .dashboard-card-col .dashboard-card .calendar-grid-main .single-day-box .single-task {
+  background: #292a2a;
+  padding: 8px;
+  margin-bottom: 15px;
+  font-size: 12px;
+  font-weight: 400;
+  font-family: "SF Pro Display";
+  color: #ffffff;
+  line-height: 14.32px;
+}
+.dashboard-main .dashboard-card-col .dashboard-card .calendar-grid-main .single-day-box .single-task:last-child {
+  margin-bottom: 0;
+}
+.dashboard-main .dashboard-card-col .dashboard-card .calendar-grid-main .single-day-box.active .day-title {
+  background: #7a00f3;
+}
+.dashboard-main .dashboard-card-col .dashboard-card .calendar-grid-main .single-day-box.active .single-task {
+  background: #7a00f3;
+}
+.dashboard-main .dashboard-card-col .dashboard-card .checked-tasks .single-task-flex {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-bottom: 15px;
+}
+.dashboard-main .dashboard-card-col .dashboard-card .checked-tasks .single-task-flex .check-icon {
+  margin-right: 10px;
+}
+.dashboard-main .dashboard-card-col .dashboard-card .checked-tasks .single-task-flex .check-icon .form-check-input {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+}
+.dashboard-main .dashboard-card-col .dashboard-card .checked-tasks .single-task-flex .check-icon .form-check-input:focus {
+  box-shadow: none;
+  outline: none;
+}
+.dashboard-main .dashboard-card-col .dashboard-card .checked-tasks .single-task-flex .check-icon .form-check-input:checked {
+  background-color: #00aa3a;
+  border-color: #00aa3a;
+}
+.dashboard-main .dashboard-card-col .dashboard-card .checked-tasks .single-task-flex .task-box {
+  flex-basis: calc(100% - 40px);
+}
+.dashboard-main .dashboard-card-col .dashboard-card .checked-tasks .single-task-flex .task-box .check-task-btn {
+  width: 100%;
+  padding: 8px 16px;
+  background: #7a00f3;
+  color: #ffffff;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  font-family: "SF Pro Display";
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 19.09px;
+  text-align: left;
+}
+.dashboard-main .dashboard-card-col .dashboard-card .checked-tasks .single-task-flex .task-box-2 {
+  flex-basis: 100%;
+}
+.dashboard-main .dashboard-card-col .dashboard-card .checked-tasks .single-task-flex .task-box-2 .check-task-btn {
+  width: 100%;
+  padding: 8px 16px;
+  background: #292a2a;
+  color: #ffffff;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  font-family: "SF Pro Display";
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 19.09px;
+  text-align: left;
+  display: flex;
+  align-items: center;
+}
+.dashboard-main .dashboard-card-col .dashboard-card .checked-tasks .single-task-input .form-control {
+  background: #292a2a;
+  border: none;
+  box-shadow: none;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  border: 1px solid #292a2a;
+  color: #ffffff;
+  font-family: "SF Pro Display";
+  font-size: 16px;
+  padding: 8px 16px;
+  margin-bottom: 15px;
+}
+.dashboard-main .dashboard-card-col .dashboard-card .checked-tasks .single-task-input .form-control::-moz-placeholder {
+  color: #7f8283;
+}
+.dashboard-main .dashboard-card-col .dashboard-card .checked-tasks .single-task-input .form-control::placeholder {
+  color: #7f8283;
+}
+.dashboard-main .dashboard-card-col .dashboard-card .checked-tasks .add-task-btn-wrapper .add-task-btn {
+  background: #333636;
+  color: #ffffff;
+  width: 100%;
+  padding: 8px 24px;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  font-family: "SF Pro Display";
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 28px;
+  border: none;
+  background: #000;
+  margin-top: 0px;
+}
+.dashboard-main .dashboard-card-col .dashboard-card h5.quote-name {
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 0;
+}
+.dashboard-main .dashboard-modal .modal-content {
+  background-color: #222424;
+}
+.dashboard-main .dashboard-modal .modal-content .modal-body {
+  padding: 55px;
+  font-family: "SF Pro Display";
+}
+.dashboard-main .dashboard-modal .modal-content .modal-body .modal-body-content-header {
+  position: relative;
+}
+.dashboard-main .dashboard-modal .modal-content .modal-body .modal-body-content-header .modal-body-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 15px;
+}
+.dashboard-main .dashboard-modal .modal-content .modal-body .modal-body-content-header .modal-body-subtitle {
+  font-size: 14px;
+  font-weight: 400;
+  color: #7f8283;
+  margin-bottom: 15px;
+}
+.dashboard-main .dashboard-modal .modal-content .modal-body .modal-body-content-header .btn-close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: none;
+  font-size: 24px;
+  color: #7f8283;
+  transition: all 0.5s;
+  box-shadow: none;
+}
+.dashboard-main .dashboard-modal .modal-content .modal-body .modal-body-content-header .btn-close:hover {
+  color: #7a00f3;
+}
+.dashboard-main .dashboard-modal .modal-content .modal-body .modal-body-content-header .date-wrapper {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+.dashboard-main .dashboard-modal .modal-content .modal-body .modal-body-content-header .date-wrapper .date img {
+  margin-right: 10px;
+}
+.dashboard-main .dashboard-modal .modal-content .modal-body .modal-body-content-header .date-wrapper .date span {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 16px;
+  color: #ffffff;
+}
+.dashboard-main .dashboard-modal .modal-content .modal-body .modal-body-content-header .date-wrapper .color img {
+  margin-right: 10px;
+}
+.dashboard-main .dashboard-modal .modal-content .modal-body .modal-body-content-header .date-wrapper .color span {
+  font-size: 16px;
+  font-weight: 700;
+  color: #ffffff;
+}
+.dashboard-main .dashboard-modal .modal-content .modal-body .modal-body-card {
+  background-color: #333636;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  padding: 24px;
+  color: #ffffff;
+  margin-bottom: 16px;
+}
+.dashboard-main .dashboard-modal .modal-content .modal-body .modal-body-card h4.title {
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 20px;
+  margin-bottom: 30px;
+}
+.dashboard-main .dashboard-modal .modal-content .modal-body .modal-body-card p.text {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 20px;
+  margin-bottom: 20px;
+}
+.dashboard-main .dashboard-modal .modal-content .modal-body .modal-body-card p.text:last-child {
+  margin-bottom: 0;
+}
+.dashboard-main .dashboard-modal .modal-content .modal-body .modal-body-card p.list-title {
+  padding: 0;
+}
+.dashboard-main .dashboard-modal .modal-content .modal-body .modal-body-card ul {
+  padding-left: 20px;
+  margin-bottom: 20px;
+}
+.dashboard-main .dashboard-modal .modal-content .modal-body .modal-body-card ul li {
+  font-size: 16px;
+  font-weight: 400;
+}
+.dashboard-main .dashboard-modal .modal-content .modal-body .get-done-list-wrapper h4.title {
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 20px;
+  color: #ffffff;
+  text-transform: capitalize;
+}
+.dashboard-main .dashboard-modal .modal-content .modal-body .get-done-list-wrapper ul {
+  list-style: none;
+  color: #ffffff;
+}
+.dashboard-main .dashboard-modal .modal-content .modal-body .get-done-list-wrapper ul li {
+  margin-bottom: 20px;
+}
+.dashboard-main .dashboard-modal .modal-content .modal-body .get-done-list-wrapper ul li:first-child {
+  font-size: 16px;
+}
+.dashboard-main .dashboard-modal .modal-content .modal-body .get-done-list-wrapper ul li input {
+  margin-right: 10px;
+}
+.dashboard-main .dashboard-modal .modal-content .modal-body .get-done-list-wrapper ul li ul {
+  padding-left: 15px;
+}
+.dashboard-main .dashboard-modal .modal-content .modal-body .get-done-list-wrapper ul li ul li {
+  margin-bottom: 20px;
+}
+
+.layout-wrapper {
+  background-color: #1a1b1c;
+  width: 100%;
+  height: 100vh;
+}
+
+.light-style .app-calendar-wrapper {
+  background-color: #1a1b1c;
+}
+.light-style .app-calendar-wrapper .app-calendar-sidebar {
+  border-right: 1px solid #7f8283;
+}
+.light-style .app-calendar-wrapper .app-calendar-sidebar hr {
+  border-color: #7f8283;
+}
+.light-style .app-calendar-wrapper .app-calendar-sidebar .btn-primary {
+  background-color: #7a00f3;
+  border-color: #7a00f3;
+}
+.light-style .app-calendar-wrapper .app-calendar-sidebar .flatpickr-calendar {
+  background-color: #1a1b1c;
+}
+.light-style .app-calendar-wrapper .app-calendar-content .card {
+  background-color: #1a1b1c;
+}
+.light-style .app-calendar-wrapper .app-calendar-content .card .card-body .dashboard-header-main {
+  margin-bottom: 0px;
+}
+.light-style .app-calendar-wrapper .app-calendar-content .card .card-body .dashboard-header-main .header-flex {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.light-style .app-calendar-wrapper .app-calendar-content .card .card-body .dashboard-header-main .header-flex .icon-box {
+  flex-basis: 40px;
+  margin-right: 20px;
+}
+.light-style .app-calendar-wrapper .app-calendar-content .card .card-body .dashboard-header-main .header-flex .header-box {
+  flex-basis: calc(100% - 60px);
+}
+.light-style .app-calendar-wrapper .app-calendar-content .card .card-body .dashboard-header-main .header-flex .header-box h1.dashboard-title {
+  font-family: "SF Pro Display";
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 30px;
+  color: #ffffff;
+  text-transform: capitalize;
+  margin-bottom: 0;
+}
+.light-style .app-calendar-wrapper .app-calendar-content .card .card-body #calendar .fc-toolbar .fc-toolbar-chunk .fc-button-group .fc-button {
+  color: #ffffff;
+  background-color: transparent !important;
+  border-radius: 30px;
+}
+.light-style .app-calendar-wrapper .app-calendar-content .card .card-body #calendar .fc-toolbar .fc-toolbar-chunk .fc-button-group .fc-button span {
+  color: #ffffff;
+}
+.light-style .app-calendar-wrapper .app-calendar-content .card .card-body #calendar .fc-toolbar .fc-toolbar-chunk .fc-button-group .fc-button.fc-button-active {
+  background-color: #333636 !important;
+}
+.light-style .app-calendar-wrapper .app-calendar-content .card .card-body #calendar .fc-toolbar .fc-toolbar-chunk h2.fc-toolbar-title {
+  color: #ffffff !important;
+  font-size: 14px;
+}
+.light-style .app-calendar-wrapper .app-calendar-content .card .card-body #calendar .fc-view-harness .fc-dayGridMonth-view .fc-scrollgrid {
+  border: 1px solid #333636;
+}
+.light-style .app-calendar-wrapper .app-calendar-content .card .card-body #calendar .fc-view-harness .fc-dayGridMonth-view .fc-scrollgrid thead tr.fc-scrollgrid-section-header th .fc-scroller-harness .fc-scroller table.fc-col-header thead tr th {
+  border: 1px solid #333636;
+}
+.light-style .fc .fc-day-today {
+  background-color: #333636 !important;
+}
+.light-style .fc table.fc-scrollgrid td {
+  border-color: #333636;
+}
+.light-style .fc .fc-list .fc-list-table th {
+  border: 0;
+  background: #222424;
+}
+
+.offcanvas {
+  background: #222424;
+}
+.offcanvas .offcanvas-title {
+  color: #ffffff;
+}
+.offcanvas .form-group {
+  margin-bottom: 20px;
+}
+.offcanvas .form-label {
+  font-family: "SF Pro Display";
+  font-size: 18px;
+  line-height: 28px;
+  font-weight: 400;
+  color: #ffffff;
+  text-transform: capitalize;
+  margin-bottom: 20px;
+}
+.offcanvas .form-control {
+  padding: 12px 24px;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  border: 1px solid #333636;
+  background-color: #1a1b1c;
+  color: #ffffff;
+  font-family: "SF Pro Display";
+}
+.offcanvas .form-control:focus {
+  box-shadow: none;
+  outline: none;
+}
+.offcanvas .select2-container--default .select2-selection {
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  border: 1px solid #333636;
+  background-color: #1a1b1c;
+  color: #ffffff;
+  font-family: "SF Pro Display";
+}
+.offcanvas .flatpickr-input[readonly] {
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  border: 1px solid #333636;
+  background-color: #1a1b1c;
+  color: #ffffff;
+  font-family: "SF Pro Display";
+}
+.offcanvas .btn-primary {
+  background-color: #7a00f3;
+  border-color: #7a00f3;
+}
+
+.fixed-nav-main {
+  margin: 50px 0;
+  position: fixed;
+  bottom: 0;
+  background-color: #1a1b1c;
+  width: 100%;
+  margin-bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  -o-transform: translateX(-50%);
+  width: 100%;
+  z-index: 99;
+}
+.fixed-nav-main .fixed-nav ul.nav li.nav-item {
+  margin-right: 14px;
+}
+.fixed-nav-main .fixed-nav ul.nav li.nav-item a.nav-link {
+  color: #fff;
+  font-size: 14px;
+  font-weight: 500;
+  font-family: "SF Pro Display";
+  text-transform: capitalize;
+  line-height: 24px;
+  min-height: 100px;
+}
+.fixed-nav-main .fixed-nav ul.nav li.nav-item a.nav-link.active {
+  border-bottom: 2px solid #7a00f3;
+  border-radius: 10px;
+}
+.fixed-nav-main .fixed-nav .calender-box {
+  min-width: 40px;
+  min-height: 40px;
+  background: #7a00f3;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  color: #fff;
+  margin-bottom: 10px;
+  text-align: center;
+}
+.fixed-nav-main .fixed-nav .calender-box .month-name {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 24px;
+  font-family: "SF Pro Display";
+  text-transform: capitalize;
+}
+.fixed-nav-main .fixed-nav .calender-box .date {
+  font-weight: 700;
+  font-size: 15px;
+  border-top: 1px solid #222424;
+}
+.fixed-nav-main .fixed-nav .icon-box {
+  min-height: 50px;
+  margin-bottom: 10px;
+}
+.fixed-nav-main .fixed-nav .icon-box img {
+  max-height: 50px;
+}
+
+.storyboard-main {
+  background-color: #1a1b1c;
+  width: 100%;
+  min-height: 100vh;
+  padding: 28px;
+  margin-bottom: 100px;
+}
+.storyboard-main .dashboard-header-main {
+  margin-bottom: 28px;
+}
+.storyboard-main .dashboard-header-main .header-flex {
+  display: flex;
+  flex-wrap: wrap;
+}
+.storyboard-main .dashboard-header-main .header-flex .icon-box {
+  flex-basis: 40px;
+  margin-right: 20px;
+}
+.storyboard-main .dashboard-header-main .header-flex .header-box {
+  flex-basis: calc(100% - 60px);
+}
+.storyboard-main .dashboard-header-main .header-flex .header-box h1.dashboard-title {
+  font-family: "SF Pro Display";
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 38px;
+  color: #ffffff;
+  text-transform: capitalize;
+}
+.storyboard-main .dashboard-header-main .header-flex .header-box p.dates {
+  font-family: "SF Pro Display";
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 24px;
+  color: #7f8283;
+  text-transform: capitalize;
+  margin-bottom: 0;
+}
+.storyboard-main .story-input-main {
+  background: #222424;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  padding: 20px;
+}
+.storyboard-main .story-input-main .build-title {
+  padding: 12px 24px;
+  background: #7a00f3;
+  color: #fff;
+  border-radius: 100px;
+  -webkit-border-radius: 100px;
+  -moz-border-radius: 100px;
+  -ms-border-radius: 100px;
+  -o-border-radius: 100px;
+  display: inline-block;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 28.64px;
+  font-family: "SF Pro Display";
+  margin-bottom: 20px;
+}
+.storyboard-main .story-input-main .form-group textarea {
+  background: #222424;
+  border: none;
+  color: #fff;
+  min-height: 100px;
+  margin-bottom: 10px;
+}
+.storyboard-main .story-input-main .form-group textarea:focus {
+  box-shadow: none;
+  outline: none;
+}
+.storyboard-main .story-input-main .form-group ::-moz-placeholder {
+  color: #7f8283;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 24px;
+  font-family: "SF Pro Display";
+}
+.storyboard-main .story-input-main .form-group ::placeholder {
+  color: #7f8283;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 24px;
+  font-family: "SF Pro Display";
+}
+.storyboard-main .story-input-main .form-group p {
+  color: #7f8283;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 24px;
+  font-family: "SF Pro Display";
+}
+.storyboard-main .story-input-main .complete-btn {
+  border: 1px dashed #0071e3;
+  color: #fff;
+  padding: 12px 24px;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  font-size: 16px;
+  line-height: 19.09px;
+  font-weight: 700;
+  font-family: "SF Pro Display";
+}/*# sourceMappingURL=style.css.map */

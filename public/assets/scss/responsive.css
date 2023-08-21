@@ -1,0 +1,130 @@
+@media (max-width: 414px) {
+  .login-main .login-parent .login-box .logo-box {
+    max-width: 150px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 10px;
+  }
+  .login-main .login-parent .login-box .title-box {
+    margin-bottom: 10px;
+  }
+  .login-main .login-parent .login-box .title-box h3 {
+    font-size: 24px;
+  }
+  .login-main .login-parent .login-box form .form-group {
+    margin-bottom: 10px;
+  }
+  .login-main .login-parent .login-box form .form-group .form-label {
+    font-size: 14px;
+    margin-bottom: 10px;
+  }
+  .login-main .login-parent .login-box form .form-group .form-control {
+    font-size: 14px;
+  }
+  .login-main .login-parent .login-box form .login-btn {
+    margin-top: 10px;
+    font-size: 14px;
+  }
+  .login-main .login-parent .login-box form .google-login-btn {
+    font-size: 14px;
+    margin-bottom: 10px;
+  }
+  .login-main .login-parent .login-box form .google-login-btn span img {
+    width: 18px;
+    height: 18px;
+  }
+  .login-main .login-parent .login-box form .reg-divider {
+    margin: 10px 0;
+    line-height: 10px;
+  }
+  .login-main .login-parent .login-box a.forget-pass {
+    margin-top: 10px;
+    font-size: 14px;
+  }
+  .login-main .login-parent .login-box h5 {
+    font-size: 14px;
+    margin-bottom: 0px;
+  }
+  .login-main .login-parent .login-box a.sign-link {
+    font-size: 14px;
+    line-height: 10px;
+  }
+}
+@media (max-width: 575px) {
+  .login-main .login-parent .login-box {
+    width: 80%;
+  }
+}
+@media (min-width: 415px) and (max-width: 575px) {
+  .login-main .login-parent .login-box .logo-box {
+    max-width: 150px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 15px;
+  }
+  .login-main .login-parent .login-box .title-box {
+    margin-bottom: 15px;
+  }
+  .login-main .login-parent .login-box .title-box h3 {
+    font-size: 24px;
+  }
+  .login-main .login-parent .login-box form .form-group {
+    margin-bottom: 15px;
+  }
+  .login-main .login-parent .login-box form .form-group .form-label {
+    font-size: 14px;
+    margin-bottom: 15px;
+  }
+  .login-main .login-parent .login-box form .form-group .form-control {
+    font-size: 14px;
+  }
+  .login-main .login-parent .login-box form .login-btn {
+    font-size: 14px;
+    margin-top: 15px;
+  }
+  .login-main .login-parent .login-box form .google-login-btn {
+    font-size: 14px;
+    margin-bottom: 15px;
+  }
+  .login-main .login-parent .login-box form .google-login-btn span img {
+    width: 18px;
+    height: 18px;
+  }
+  .login-main .login-parent .login-box form .reg-divider {
+    margin: 15px 0;
+    line-height: 10px;
+  }
+  .login-main .login-parent .login-box a.forget-pass {
+    font-size: 14px;
+  }
+  .login-main .login-parent .login-box h5 {
+    font-size: 14px;
+    margin-bottom: 5px;
+  }
+  .login-main .login-parent .login-box a.sign-link {
+    font-size: 14px;
+    line-height: 10px;
+  }
+}
+@media (min-width: 576px) and (max-width: 767px) {
+  .login-main .login-parent .login-box .logo-box {
+    max-width: 200px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .login-main .login-parent .login-box form .login-btn {
+    font-size: 16px;
+  }
+  .login-main .login-parent .login-box form .google-login-btn {
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
+  .login-main .login-parent .login-box form .google-login-btn span img {
+    width: 18px;
+    height: 18px;
+  }
+  .login-main .login-parent .login-box form .reg-divider {
+    line-height: 10px;
+    font-size: 16px;
+  }
+}/*# sourceMappingURL=responsive.css.map */
