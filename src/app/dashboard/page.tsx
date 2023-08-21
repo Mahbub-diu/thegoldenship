@@ -22,8 +22,7 @@ function Dashboard() {
   };
   const addTask = async () => {
     let res = await axios.post("/api/tasks/task", {
-      ...taskData,
-      authorId: session?.user?.id ?? null,
+      ...taskData
     });
     console.log(res);
     setCoreTask((state) => [...state, res.data]);
