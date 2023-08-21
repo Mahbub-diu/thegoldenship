@@ -2,13 +2,11 @@ import { PrismaClient } from "@prisma/client";
 import { getServerSession } from "next-auth";
 import { getToken } from "next-auth/jwt";
 import { NextRequest, NextResponse } from "next/server";
-import handler from "../../auth/[...nextauth]/route";
+// import handler from "../../auth/[...nextauth]/route";
 let bcrypt = require("bcrypt");
 //post in by prisma
 const prisma = new PrismaClient();
 export const POST = async (req: NextRequest) => {
-  const session: any = await getServerSession(handler);
-  console.log(session);
   let data = await req.json();
   let {
     title,
