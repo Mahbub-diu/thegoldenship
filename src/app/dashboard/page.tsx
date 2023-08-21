@@ -29,7 +29,7 @@ function Dashboard() {
     setTaskData({ ...taskData, title: "", content: "" });
   };
   useEffect(() => {
-    setTaskData({ ...taskData, authorId: session?.user?.id });
+    setTaskData({ ...taskData, authorId: session?.user ? session.user.id : null });
     getCoreTask();
   }, []);
   return (
