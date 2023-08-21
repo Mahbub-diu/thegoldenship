@@ -18,7 +18,7 @@ export const LoginForm = () => {
     e.preventDefault();
     setLoading(true);
     let data = await signIn("google", {
-      callbackUrl: "http://localhost:3000/dashboard",
+      callbackUrl: "/dashboard",
 
       redirect: true,
     });
@@ -36,7 +36,7 @@ export const LoginForm = () => {
       redirect: false,
       email: signInData.email,
       password: signInData.password,
-      callbackUrl: "http://localhost:3000/",
+      callbackUrl: "/",
     });
     setLoading(false);
     console.log(data);
@@ -51,7 +51,7 @@ export const LoginForm = () => {
     <>
       <form action="" className="needs-validation" onSubmit={loginNow}>
         <div className="form-group">
-          <label for="email" className="form-label">
+          <label htmlFor="email" className="form-label">
             Email Addresss
           </label>
           <input
@@ -69,7 +69,7 @@ export const LoginForm = () => {
           </div>
         </div>
         <div className="form-group">
-          <label for="password" className="form-label">
+          <label htmlFor="password" className="form-label">
             {" "}
             password
           </label>

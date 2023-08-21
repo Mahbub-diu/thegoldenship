@@ -10,7 +10,11 @@ export default function AuthProvider({
   children: React.ReactNode;
 }) {
   return (
-    <SessionProvider>
+    <SessionProvider 
+      // Re-fetch session every 5 minutes
+      refetchInterval={5 * 60}
+      // Re-fetches session when window is focused
+      refetchOnWindowFocus={true}>
       <>
         <NextNProgress />
         {children} <ToastContainer />
