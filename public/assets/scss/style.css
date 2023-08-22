@@ -934,4 +934,63 @@ img {
   line-height: 19.09px;
   font-weight: 700;
   font-family: "SF Pro Display";
+}
+
+.BorderGrid--spacious {
+  margin-top: -24px;
+  margin-bottom: -24px;
+}
+.BorderGrid--spacious .BorderGrid-cell {
+  padding-top: 24px;
+  padding-bottom: 24px;
+  display: table-cell;
+  border: 1px solid #333636;
+}
+
+.BorderGrid {
+  display: table;
+  width: 100%;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  table-layout: fixed;
+  border-collapse: collapse;
+  border-style: hidden;
+}
+
+.BorderGrid-row {
+  display: table-row;
+}
+
+.Progress {
+  border-radius: 6px;
+  display: flex;
+  height: 10px;
+  outline: 1px solid #7f8283;
+}
+.Progress .color-bg-success-emphasis {
+  background: #7a00f3;
+  border-radius: 6px;
+}
+
+.Progress-item {
+  border-right: 1px solid #333636;
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+}
+.Progress-item:last-child {
+  border-right: none;
+}
+.Progress-item .Progress-item-child {
+  z-index: 999;
+  border-right: 1px solid #b6b6b6;
+}
+.Progress-item .Progress-item-child:last-child {
+  border-right: none;
+}
+.Progress-item .step {
+  position: absolute;
+  color: #fff;
+  right: 0%;
+  bottom: -35px;
 }/*# sourceMappingURL=style.css.map */
