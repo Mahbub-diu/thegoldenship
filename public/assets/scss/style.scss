@@ -211,10 +211,12 @@ img {
   }
 
   .dashboard-card-col {
+
     // margin-bottom: 24px;
     &:nth-last-child(-n + 2) {
       margin-bottom: 0;
     }
+
     .dashboard-card {
       @include dashboard-common-card;
 
@@ -250,6 +252,7 @@ img {
             margin-left: 8px;
             margin-right: 8px;
           }
+
           a {
             width: 24px;
             height: 24px;
@@ -261,6 +264,7 @@ img {
         display: grid;
         grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
         grid-gap: 15px;
+
         .single-day-box {
           .day-title {
             background: #292a2a;
@@ -274,6 +278,7 @@ img {
             line-height: 16.71px;
             margin-bottom: 15px;
           }
+
           .single-task {
             background: #292a2a;
             padding: 8px;
@@ -284,14 +289,17 @@ img {
             color: $white;
             line-height: 14.32px;
           }
+
           .single-task:last-child {
             margin-bottom: 0;
           }
         }
+
         .single-day-box.active {
           .day-title {
             background: $purple-brand;
           }
+
           .single-task {
             background: $purple-brand;
           }
@@ -398,24 +406,28 @@ img {
   .dashboard-modal {
     .modal-content {
       background-color: $d-gray;
+
       .modal-body {
         padding: 55px;
         font-family: $sf-font;
 
         .modal-body-content-header {
           position: relative;
+
           .modal-body-title {
             font-size: 16px;
             font-weight: 700;
             color: $white;
             margin-bottom: 15px;
           }
+
           .modal-body-subtitle {
             font-size: 14px;
             font-weight: 400;
             color: $ash;
             margin-bottom: 15px;
           }
+
           .btn-close {
             position: absolute;
             top: 0;
@@ -430,14 +442,17 @@ img {
               color: $purple-brand;
             }
           }
+
           .date-wrapper {
             display: flex;
             justify-content: space-between;
             margin-bottom: 15px;
+
             .date {
               img {
                 margin-right: 10px;
               }
+
               span {
                 font-size: 16px;
                 font-weight: 400;
@@ -445,10 +460,12 @@ img {
                 color: $white;
               }
             }
+
             .color {
               img {
                 margin-right: 10px;
               }
+
               span {
                 font-size: 16px;
                 font-weight: 700;
@@ -468,6 +485,7 @@ img {
           padding: 24px;
           color: $white;
           margin-bottom: 16px;
+
           h4.title {
             font-size: 16px;
             font-weight: 700;
@@ -493,6 +511,7 @@ img {
           ul {
             padding-left: 20px;
             margin-bottom: 20px;
+
             li {
               font-size: 16px;
               font-weight: 400;
@@ -512,16 +531,21 @@ img {
           ul {
             list-style: none;
             color: $white;
+
             li {
               margin-bottom: 20px;
+
               &:first-child {
                 font-size: 16px;
               }
+
               input {
                 margin-right: 10px;
               }
+
               ul {
                 padding-left: 15px;
+
                 li {
                   margin-bottom: 20px;
                 }
@@ -547,13 +571,16 @@ img {
 
     .app-calendar-sidebar {
       border-right: 1px solid #7f8283;
+
       hr {
         border-color: #7f8283;
       }
+
       .btn-primary {
         background-color: $purple-brand;
         border-color: $purple-brand;
       }
+
       .flatpickr-calendar {
         background-color: $l-black;
       }
@@ -592,6 +619,7 @@ img {
               }
             }
           }
+
           #calendar {
             .fc-toolbar {
               .fc-toolbar-chunk {
@@ -646,11 +674,9 @@ img {
               }
 
               table {
-                thead {
-                }
+                thead {}
 
-                tbody {
-                }
+                tbody {}
               }
             }
           }
@@ -663,11 +689,13 @@ img {
     .fc-day-today {
       background-color: $d-ash !important;
     }
+
     table.fc-scrollgrid {
       td {
         border-color: $d-ash;
       }
     }
+
     .fc-list {
       .fc-list-table {
         th {
@@ -681,9 +709,11 @@ img {
 
 .offcanvas {
   background: #222424;
+
   .offcanvas-title {
     color: $white;
   }
+
   .form-group {
     margin-bottom: 20px;
   }
@@ -713,6 +743,7 @@ img {
       font-family: 'SF Pro Display';
     }
   }
+
   .flatpickr-input[readonly] {
     -webkit-border-radius: 10px;
     -moz-border-radius: 10px;
@@ -723,6 +754,7 @@ img {
     color: #ffffff;
     font-family: 'SF Pro Display';
   }
+
   .btn-primary {
     background-color: $purple-brand;
     border-color: $purple-brand;
@@ -739,10 +771,12 @@ img {
   @include trans-x-center;
   width: 100%;
   z-index: 99;
+
   .fixed-nav {
     ul.nav {
       li.nav-item {
         margin-right: 14px;
+
         a.nav-link {
           color: #fff;
           font-size: 14px;
@@ -752,12 +786,14 @@ img {
           line-height: 24px;
           min-height: 100px;
         }
+
         a.nav-link.active {
           border-bottom: 2px solid $purple-brand;
           border-radius: 10px;
         }
       }
     }
+
     .calender-box {
       min-width: 40px;
       min-height: 40px;
@@ -770,6 +806,7 @@ img {
       color: #fff;
       margin-bottom: 10px;
       text-align: center;
+
       .month-name {
         font-size: 14px;
         font-weight: 500;
@@ -777,15 +814,18 @@ img {
         font-family: $sf-font;
         text-transform: capitalize;
       }
+
       .date {
         font-weight: 700;
         font-size: 15px;
         border-top: 1px solid #222424;
       }
     }
+
     .icon-box {
       min-height: 50px;
       margin-bottom: 10px;
+
       img {
         max-height: 50px;
       }
@@ -799,6 +839,7 @@ img {
   min-height: 100vh;
   padding: 28px;
   margin-bottom: 100px;
+
   .dashboard-header-main {
     margin-bottom: 28px;
 
@@ -861,6 +902,7 @@ img {
       font-family: $sf-font;
       margin-bottom: 20px;
     }
+
     .form-group {
       textarea {
         background: #222424;
@@ -868,10 +910,12 @@ img {
         color: #fff;
         min-height: 100px;
         margin-bottom: 10px;
+
         &:focus {
           @include common-focus-action;
         }
       }
+
       ::placeholder {
         color: $ash;
         font-weight: 400;
@@ -879,6 +923,7 @@ img {
         line-height: 24px;
         font-family: $sf-font;
       }
+
       p {
         color: $ash;
         font-weight: 400;
@@ -887,6 +932,7 @@ img {
         font-family: $sf-font;
       }
     }
+
     .complete-btn {
       border: 1px dashed #0071e3;
       color: #fff;
@@ -901,5 +947,71 @@ img {
       font-weight: 700;
       font-family: $sf-font;
     }
+  }
+}
+
+.BorderGrid--spacious {
+  margin-top: -24px;
+  margin-bottom: -24px;
+
+  .BorderGrid-cell {
+    padding-top: 24px;
+    padding-bottom: 24px;
+    display: table-cell;
+    border: 1px solid #333636;
+  }
+}
+
+.BorderGrid {
+  display: table;
+  width: 100%;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  table-layout: fixed;
+  border-collapse: collapse;
+  border-style: hidden;
+}
+
+.BorderGrid-row {
+  display: table-row;
+}
+
+.Progress {
+  border-radius: 6px;
+  display: flex;
+  height: 10px;
+  outline: 1px solid #7f8283;
+
+  // overflow: hidden;
+  .color-bg-success-emphasis {
+    background: $purple-brand;
+    border-radius: 6px;
+  }
+}
+
+.Progress-item {
+  border-right: 1px solid #333636;
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+
+  &:last-child {
+    border-right: none;
+  }
+
+  .Progress-item-child {
+    z-index: 1;
+    border-right: 1px solid #b6b6b6;
+
+    &:last-child {
+      border-right: none;
+    }
+  }
+
+  .step {
+    position: absolute;
+    color: #fff;
+    right: 0%;
+    bottom: -35px;
   }
 }

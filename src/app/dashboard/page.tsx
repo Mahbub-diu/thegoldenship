@@ -5,6 +5,7 @@ import { options } from "../api/auth/[...nextauth]/options";
 import { signOut, useSession } from "next-auth/react";
 import axios from "axios";
 import moment from "moment";
+import Link from "next/link";
 
 function Dashboard() {
   const { data: session } = useSession();
@@ -22,7 +23,7 @@ function Dashboard() {
   };
   const addTask = async () => {
     let res = await axios.post("/api/tasks/task", {
-      ...taskData
+      ...taskData,
     });
     console.log(res);
     setCoreTask((state) => [...state, res.data]);
@@ -48,12 +49,12 @@ function Dashboard() {
                   </div>
                   <div className="header-box">
                     <h1 className="dashboard-title d-flex justify-content-between">
-                      <p>
+                      <div>
                         Hlw , {session?.user?.name}{" "}
                         <p className="dates">
                           {moment().format("MMMM Do YYYY, h:mm:ss a")}
                         </p>
-                      </p>
+                      </div>
                       <p>
                         <button
                           onClick={() => signOut()}
@@ -347,17 +348,89 @@ function Dashboard() {
               </div>
             </div>
           </div>
-
           <div className="row">
             <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-              <div className="common-progressbar-main">
-                <ul className="list-unstyled multi-steps">
-                  <li>Start</li>
-                  <li className="is-active">Sprint#1</li>
-                  <li>Sprint#2</li>
-                  <li>Sprint#3</li>
-                  <li>MVP Completed</li>
-                </ul>
+              <div className="BorderGrid BorderGrid--spacious">
+                <div className="BorderGrid-row">
+                  <div className="BorderGrid-cell">
+                    <div className="mb-2">
+                      <span className="Progress">
+                        <span
+                          style={{
+                            background: "#7a00f3 !important",
+                            width: "33.33%",
+                            border: "1px solid #333636",
+                          }}
+                          aria-label="JavaScript 71.7"
+                          className="Progress-item partent color-bg-success-emphasis"
+                        >
+                          <span
+                            style={{
+                              backgroundColor: "#7a00f3 !important",
+                              width: "25%",
+                              border: "1px solid #333636",
+                              height: "100%",
+                            }}
+                            aria-label="JavaScript 71.7"
+                            className="Progress-item-child child "
+                          ></span>
+                          <span
+                            style={{
+                              backgroundColor: "#7a00f3 !important",
+                              width: "25%",
+                              border: "1px solid #333636",
+                              height: "100%",
+                            }}
+                            aria-label="JavaScript 71.7"
+                            className="Progress-item-child child "
+                          ></span>
+                          <span
+                            style={{
+                              backgroundColor: "#7a00f3 !important",
+                              width: "25%",
+                              border: "1px solid #333636",
+                              height: "100%",
+                            }}
+                            aria-label="JavaScript 71.7"
+                            className="Progress-item-child child "
+                          ></span>
+                          <span
+                            style={{
+                              backgroundColor: "#7a00f3 !important",
+                              width: "25%",
+                              height: "100%",
+                            }}
+                            aria-label="JavaScript 71.7"
+                            className="Progress-item-child child "
+                          ></span>
+                          <div className="step">Sprint #1</div>
+                        </span>
+                        <span
+                          style={{
+                            backgroundColor: "transparent !important",
+                            width: "33.33%",
+                            height: "100%",
+                            border: "1px solid #333636",
+                          }}
+                          className="Progress-item "
+                        >
+                          <div className="step">Sprint #2</div>
+                        </span>
+                        <span
+                          style={{
+                            backgroundColor: "transparent !important",
+                            width: "33.33%",
+                            height: "100%",
+                            border: "1px solid #333636",
+                          }}
+                          className="Progress-item "
+                        >
+                          <div className="step">Sprint #3</div>
+                        </span>
+                      </span>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -530,29 +603,29 @@ function Dashboard() {
               <div className="fixed-nav">
                 <ul className="nav justify-content-center">
                   <li className="nav-item">
-                    <a className="nav-link active" href="#">
+                    <Link className="nav-link active" href="/dashboard">
                       <div className="calender-box">
                         <div className="month-name">August</div>
                         <div className="date">03</div>
                       </div>
                       dashboard
-                    </a>
+                    </Link>
                   </li>
                   <li className="nav-item">
-                    <a className="nav-link" href="#">
+                    <Link className="nav-link" href="/story">
                       <div className="icon-box">
                         <img src="assets/images/icon/story.png" alt="" />
                       </div>
                       <div className="nav-title">story</div>
-                    </a>
+                    </Link>
                   </li>
                   <li className="nav-item">
-                    <a className="nav-link" href="#">
+                    <Link className="nav-link" href="/sprints">
                       <div className="icon-box">
                         <img src="assets/images/icon/terminal.png" alt="" />
                       </div>
                       <div className="nav-title">Journey</div>
-                    </a>
+                    </Link>
                   </li>
                   <li className="nav-item">
                     <a className="nav-link" href="#">
