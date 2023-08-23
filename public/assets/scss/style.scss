@@ -1014,4 +1014,119 @@ img {
     right: 0%;
     bottom: -35px;
   }
+}.dashboard-card {
+  .rewards-card-header {
+    @include rewards-common-card-header;
+
+    h2.rewards-card-title {
+      font-family: $sf-font;
+      font-weight: 700;
+      font-size: 20px;
+      // line-height: 38px;
+      text-transform: capitalize;
+      color: $white;
+      margin-bottom: 0;
+      text-align: center !important;
+    }
+  }
+
+  .rewards-table {
+    tr {
+      td {
+        font-family: $sf-font;
+        vertical-align: middle;
+        background: transparent;
+        color: $white;
+
+
+
+        .redeem-btn {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          padding: 8px 14px;
+          color: $white;
+          width: 120px;
+          border-radius: 10px;
+          font-size: 13px;
+          font-weight: 700;
+        }
+
+        .redeem-btn-1 {
+          background: $purple-brand;
+        }
+
+        .redeem-btn-2 {
+          color: #7F8283;
+
+        }
+      }
+    }
+  }
+
+  .rewards-card-content {
+    h5 {
+      font-family: $sf-font;
+      color: $white;
+      font-size: 16px;
+      margin-bottom: 25px;
+    }
+
+    .nav {
+      padding: 0;
+
+      a.nav-link {
+        padding: 0;
+
+        .rewards-point {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+
+          .points-description {
+            background: #171717;
+            padding: 12px 15px;
+            border-radius: 10px;
+            color: $white;
+
+            h5 {
+              margin-bottom: 5px;
+              font-family: $sf-font;
+              color: $white;
+              font-size: 16px;
+            }
+
+            p {
+              margin: 0;
+              font-family: $sf-font;
+              font-size: 12px;
+            }
+          }
+
+          .points {
+            h5 {
+              margin: 0;
+              font-family: $sf-font;
+              color: $white;
+              font-size: 16px;
+            }
+          }
+        }
+      }
+    }
+
+    h5.extra-point-title {
+      margin-bottom: 12px;
+    }
+
+    ul.extra-point-title-list {
+      padding-left: 30px;
+
+      li {
+        font-family: $sf-font;
+        color: $white;
+        font-weight: 400;
+      }
+    }
+  }
 }

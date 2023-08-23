@@ -50,7 +50,9 @@ export const options: NextAuthOptions = {
     signIn: "/",
   },
   debug: true,
-  secret: "secret",
+  jwt: {
+    secret: process.env.NEXTAUTH_SECRET,
+  },
   session: {
     strategy: "jwt",
     maxAge: 30 * 24 * 60 * 60, // 30 days
@@ -59,7 +61,7 @@ export const options: NextAuthOptions = {
   callbacks: {
     async jwt({ token, user, account, profile, isNewUser, trigger }) {
       let userDb;
-      if (user) {
+      if (account) {
         console.log("signIn", trigger);
         userDb = await prisma.user.findFirst({
           where: {

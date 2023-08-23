@@ -10,6 +10,8 @@ import Link from "next/link";
 function Dashboard() {
   const { data: session } = useSession();
   let [coreTask, setCoreTask] = useState<any[]>([]);
+  let [sevenDayTask, setSevenDayTask] = useState<any[]>([]);
+  let [monthTask, setMonthTask] = useState<any[]>([]);
   let [todayDate, setTodayDate] = useState<any>(moment().format("LL")); // August 3, 2021
   let [taskData, setTaskData] = useState({
     title: "",
@@ -19,8 +21,10 @@ function Dashboard() {
 
   const getCoreTask = async () => {
     let res = await axios.get("/api/tasks/task");
-    console.log(res);
-    setCoreTask(res.data);
+    console.log(res.data);
+    setCoreTask(res?.data?.todayTasks);
+    setMonthTask(res?.data?.tasksByDay);
+    setSevenDayTask(res?.data?.sevenDaysTasks);
   };
   const addTask = async () => {
     let res = await axios.post("/api/tasks/task", {
@@ -52,9 +56,7 @@ function Dashboard() {
                     <h1 className="dashboard-title d-flex justify-content-between">
                       <div>
                         Hlw , {session?.user?.name}{" "}
-                        <p className="dates">
-                          {todayDate}
-                        </p>
+                        <p className="dates">{todayDate}</p>
                       </div>
                       <p>
                         <button
@@ -594,51 +596,6 @@ function Dashboard() {
                     </div>
                   </div>
                 </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-      <section className="fixed-nav-main">
-        <div className="container-xxl">
-          <div className="row">
-            <div className="col-12">
-              <div className="fixed-nav">
-                <ul className="nav justify-content-center">
-                  <li className="nav-item">
-                    <Link className="nav-link active" href="/dashboard">
-                      <div className="calender-box">
-                        <div className="month-name">August</div>
-                        <div className="date">03</div>
-                      </div>
-                      dashboard
-                    </Link>
-                  </li>
-                  <li className="nav-item">
-                    <Link className="nav-link" href="/story">
-                      <div className="icon-box">
-                        <img src="assets/images/icon/story.png" alt="" />
-                      </div>
-                      <div className="nav-title">story</div>
-                    </Link>
-                  </li>
-                  <li className="nav-item">
-                    <Link className="nav-link" href="/sprints">
-                      <div className="icon-box">
-                        <img src="assets/images/icon/terminal.png" alt="" />
-                      </div>
-                      <div className="nav-title">Journey</div>
-                    </Link>
-                  </li>
-                  <li className="nav-item">
-                    <a className="nav-link" href="#">
-                      <div className="icon-box">
-                        <img src="assets/images/icon/star.png" alt="" />
-                      </div>
-                      <div className="nav-title">rewards</div>
-                    </a>
-                  </li>
-                </ul>
               </div>
             </div>
           </div>
