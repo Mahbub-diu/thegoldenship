@@ -1,41 +1,41 @@
-"use client";
-import { PrismaClient } from "@prisma/client";
-import React, { useEffect, useState } from "react";
-import { options } from "../api/auth/[...nextauth]/options";
-import { signOut, useSession } from "next-auth/react";
-import axios from "axios";
-import moment from "moment";
-import Link from "next/link";
+'use client';
+import { PrismaClient } from '@prisma/client';
+import React, { useEffect, useState } from 'react';
+import { options } from '../api/auth/[...nextauth]/options';
+import { signOut, useSession } from 'next-auth/react';
+import axios from 'axios';
+import moment from 'moment';
+import Link from 'next/link';
 
 function Dashboard() {
   const { data: session } = useSession();
   let [coreTask, setCoreTask] = useState<any[]>([]);
   let [sevenDayTask, setSevenDayTask] = useState<any[]>([]);
   let [monthTask, setMonthTask] = useState<any[]>([]);
-  let [todayDate, setTodayDate] = useState<any>(moment().format("LL")); // August 3, 2021
+  let [todayDate, setTodayDate] = useState<any>(moment().format('LL')); // August 3, 2021
   let [taskData, setTaskData] = useState({
-    title: "",
-    content: "",
+    title: '',
+    content: '',
     authorId: null,
   });
 
   const getCoreTask = async () => {
-    let res = await axios.get("/api/tasks/task");
+    let res = await axios.get('/api/tasks/task');
     console.log(res.data);
     setCoreTask(res?.data?.todayTasks);
     setMonthTask(res?.data?.tasksByDay);
     setSevenDayTask(res?.data?.sevenDaysTasks);
   };
   const addTask = async () => {
-    let res = await axios.post("/api/tasks/task", {
+    let res = await axios.post('/api/tasks/task', {
       ...taskData,
     });
     console.log(res);
     setCoreTask((state) => [...state, res.data]);
-    setTaskData({ ...taskData, title: "", content: "" });
+    setTaskData({ ...taskData, title: '', content: '' });
   };
   useEffect(() => {
-    setTodayDate(moment().format("MMMM Do YYYY, h:mm:ss a"));
+    setTodayDate(moment().format('MMMM Do YYYY, h:mm:ss a'));
     getCoreTask();
   }, []);
   return (
@@ -55,7 +55,7 @@ function Dashboard() {
                   <div className="header-box">
                     <h1 className="dashboard-title d-flex justify-content-between">
                       <div>
-                        Hlw , {session?.user?.name}{" "}
+                        Hlw , {session?.user?.name}{' '}
                         <p className="dates">{todayDate}</p>
                       </div>
                       <p>
@@ -67,6 +67,119 @@ function Dashboard() {
                         </button>
                       </p>
                     </h1>
+                  </div>
+                  <div className="profile-box">
+                    <a
+                      className="nav-link dropdown-toggle hide-arrow show"
+                      href="javascript:void(0);"
+                      data-bs-toggle="dropdown"
+                      aria-expanded="true"
+                    >
+                      <div className="avatar avatar-online">
+                        <img
+                          src="http://36.255.71.212:8090/assets/img/avatars/1.png"
+                          className="h-auto rounded-circle"
+                        />
+                      </div>
+                    </a>
+                    <ul
+                      className="dropdown-menu dropdown-menu-end show"
+                      data-bs-popper="static"
+                    >
+                      <li>
+                        <a
+                          className="dropdown-item"
+                          href="pages-account-settings-account.html"
+                        >
+                          <div className="d-flex">
+                            <div className="flex-shrink-0 me-3">
+                              <div className="avatar avatar-online">
+                                <img
+                                  src="http://36.255.71.212:8090/assets/img/avatars/1.png"
+                                  className="h-auto rounded-circle"
+                                />
+                              </div>
+                            </div>
+                            <div className="flex-shrink-1">
+                              <span className="fw-semibold d-block">
+                                Nazmus Sakib
+                              </span>
+                              <small className="text-muted">Client</small>
+                            </div>
+                          </div>
+                        </a>
+                      </li>
+                      <li>
+                        <div className="dropdown-divider"></div>
+                      </li>
+                      <li>
+                        <a
+                          className="dropdown-item"
+                          href="pages-profile-user.html"
+                        >
+                          <i className="ti ti-user-check me-2 ti-sm"></i>
+                          <span className="align-middle">My Profile</span>
+                        </a>
+                      </li>
+                      <li>
+                        <a
+                          className="dropdown-item"
+                          href="pages-account-settings-account.html"
+                        >
+                          <i className="ti ti-settings me-2 ti-sm"></i>
+                          <span className="align-middle">Settings</span>
+                        </a>
+                      </li>
+                      <li>
+                        <a
+                          className="dropdown-item"
+                          href="pages-account-settings-billing.html"
+                        >
+                          <span className="d-flex align-items-center align-middle">
+                            <i className="flex-shrink-0 ti ti-credit-card me-2 ti-sm"></i>
+                            <span className="flex-grow-1 align-middle">
+                              Billing
+                            </span>
+                            <span className="flex-shrink-0 badge badge-center rounded-pill bg-label-danger w-px-20 h-px-20">
+                              2
+                            </span>
+                          </span>
+                        </a>
+                      </li>
+                      <li>
+                        <div className="dropdown-divider"></div>
+                      </li>
+                      <li>
+                        <a
+                          className="dropdown-item"
+                          href="pages-help-center-landing.html"
+                        >
+                          <i className="ti ti-lifebuoy me-2 ti-sm"></i>
+                          <span className="align-middle">Help</span>
+                        </a>
+                      </li>
+                      <li>
+                        <a className="dropdown-item" href="pages-faq.html">
+                          <i className="ti ti-help me-2 ti-sm"></i>
+                          <span className="align-middle">FAQ</span>
+                        </a>
+                      </li>
+                      <li>
+                        <a className="dropdown-item" href="pages-pricing.html">
+                          <i className="ti ti-currency-dollar me-2 ti-sm"></i>
+                          <span className="align-middle">Pricing</span>
+                        </a>
+                      </li>
+                      <li>
+                        <div className="dropdown-divider"></div>
+                      </li>
+                      <li>
+                        <a className="dropdown-item" href="javascript:void(0);">
+                          <i className="ti ti-logout me-2 ti-sm"></i>
+                          <span className="align-middle">Log Out</span>
+                        </a>
+                      </li>
+                    </ul>
                   </div>
                 </div>
               </div>
@@ -362,48 +475,48 @@ function Dashboard() {
                       <span className="Progress">
                         <span
                           style={{
-                            background: "#7a00f3 !important",
-                            width: "33.33%",
-                            border: "1px solid #333636",
+                            background: '#7a00f3 !important',
+                            width: '33.33%',
+                            border: '1px solid #333636',
                           }}
                           aria-label="JavaScript 71.7"
                           className="Progress-item partent color-bg-success-emphasis"
                         >
                           <span
                             style={{
-                              backgroundColor: "#7a00f3 !important",
-                              width: "25%",
-                              border: "1px solid #333636",
-                              height: "100%",
+                              backgroundColor: '#7a00f3 !important',
+                              width: '25%',
+                              border: '1px solid #333636',
+                              height: '100%',
                             }}
                             aria-label="JavaScript 71.7"
                             className="Progress-item-child child "
                           ></span>
                           <span
                             style={{
-                              backgroundColor: "#7a00f3 !important",
-                              width: "25%",
-                              border: "1px solid #333636",
-                              height: "100%",
+                              backgroundColor: '#7a00f3 !important',
+                              width: '25%',
+                              border: '1px solid #333636',
+                              height: '100%',
                             }}
                             aria-label="JavaScript 71.7"
                             className="Progress-item-child child "
                           ></span>
                           <span
                             style={{
-                              backgroundColor: "#7a00f3 !important",
-                              width: "25%",
-                              border: "1px solid #333636",
-                              height: "100%",
+                              backgroundColor: '#7a00f3 !important',
+                              width: '25%',
+                              border: '1px solid #333636',
+                              height: '100%',
                             }}
                             aria-label="JavaScript 71.7"
                             className="Progress-item-child child "
                           ></span>
                           <span
                             style={{
-                              backgroundColor: "#7a00f3 !important",
-                              width: "25%",
-                              height: "100%",
+                              backgroundColor: '#7a00f3 !important',
+                              width: '25%',
+                              height: '100%',
                             }}
                             aria-label="JavaScript 71.7"
                             className="Progress-item-child child "
@@ -412,10 +525,10 @@ function Dashboard() {
                         </span>
                         <span
                           style={{
-                            backgroundColor: "transparent !important",
-                            width: "33.33%",
-                            height: "100%",
-                            border: "1px solid #333636",
+                            backgroundColor: 'transparent !important',
+                            width: '33.33%',
+                            height: '100%',
+                            border: '1px solid #333636',
                           }}
                           className="Progress-item "
                         >
@@ -423,10 +536,10 @@ function Dashboard() {
                         </span>
                         <span
                           style={{
-                            backgroundColor: "transparent !important",
-                            width: "33.33%",
-                            height: "100%",
-                            border: "1px solid #333636",
+                            backgroundColor: 'transparent !important',
+                            width: '33.33%',
+                            height: '100%',
+                            border: '1px solid #333636',
                           }}
                           className="Progress-item "
                         >

@@ -207,11 +207,87 @@ img {
           margin-bottom: 0;
         }
       }
+      .profile-box {
+        .dropdown-toggle {
+          .avatar {
+            position: relative;
+            width: 2.375rem;
+            height: 2.375rem;
+            cursor: pointer;
+
+            &::after {
+              content: '';
+              position: absolute;
+              bottom: 0;
+              right: 3px;
+              width: 8px;
+              height: 8px;
+              border-radius: 100%;
+              box-shadow: 0 0 0 2px #fff;
+            }
+          }
+
+          .avatar.avatar-online {
+            &::after {
+              background-color: #28c76f;
+            }
+          }
+        }
+        .dropdown-menu {
+          min-width: 14rem;
+          // right: 0;
+          left: auto;
+          top: 100%;
+          font-family: $sf-font;
+          background: $d-gray;
+
+          .dropdown-item {
+            line-height: 1.375;
+            width: calc(100% - 1rem);
+            margin: 0.25rem 0.5rem;
+            border-radius: 0.375rem;
+            clear: both;
+            font-weight: 400;
+            color: var(--bs-dropdown-link-color);
+            text-align: inherit;
+            white-space: nowrap;
+            background-color: transparent;
+            border: 0;
+            color: $white;
+            font-size: 16px;
+
+            .avatar {
+              position: relative;
+              width: 2.375rem;
+              height: 2.375rem;
+              cursor: pointer;
+            }
+
+            span {
+              color: $white !important;
+            }
+
+            small {
+              color: $white !important;
+            }
+
+            &:hover {
+              color: $purple-brand;
+              span {
+                color: $purple-brand !important;
+              }
+
+              // small {
+              //   color: $purple-brand !important;
+              // }
+            }
+          }
+        }
+      }
     }
   }
 
   .dashboard-card-col {
-
     // margin-bottom: 24px;
     &:nth-last-child(-n + 2) {
       margin-bottom: 0;
@@ -674,9 +750,11 @@ img {
               }
 
               table {
-                thead {}
+                thead {
+                }
 
-                tbody {}
+                tbody {
+                }
               }
             }
           }
@@ -1014,7 +1092,8 @@ img {
     right: 0%;
     bottom: -35px;
   }
-}.dashboard-card {
+}
+.dashboard-card {
   .rewards-card-header {
     @include rewards-common-card-header;
 
@@ -1038,8 +1117,6 @@ img {
         background: transparent;
         color: $white;
 
-
-
         .redeem-btn {
           display: flex;
           align-items: center;
@@ -1057,8 +1134,7 @@ img {
         }
 
         .redeem-btn-2 {
-          color: #7F8283;
-
+          color: #7f8283;
         }
       }
     }
