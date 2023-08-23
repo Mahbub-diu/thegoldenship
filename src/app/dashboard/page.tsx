@@ -10,6 +10,7 @@ import Link from "next/link";
 function Dashboard() {
   const { data: session } = useSession();
   let [coreTask, setCoreTask] = useState<any[]>([]);
+  let [todayDate, setTodayDate] = useState<any>(moment().format("LL")); // August 3, 2021
   let [taskData, setTaskData] = useState({
     title: "",
     content: "",
@@ -30,7 +31,7 @@ function Dashboard() {
     setTaskData({ ...taskData, title: "", content: "" });
   };
   useEffect(() => {
-    // setTaskData({ ...taskData, authorId: session?.user ? session.user.id : null });
+    setTodayDate(moment().format("MMMM Do YYYY, h:mm:ss a"));
     getCoreTask();
   }, []);
   return (
@@ -52,7 +53,7 @@ function Dashboard() {
                       <div>
                         Hlw , {session?.user?.name}{" "}
                         <p className="dates">
-                          {moment().format("MMMM Do YYYY, h:mm:ss a")}
+                          {todayDate}
                         </p>
                       </div>
                       <p>
@@ -105,6 +106,7 @@ function Dashboard() {
                       type="text"
                       className="form-control"
                       id="exampleFormControlInput1"
+                      value={taskData.title}
                       placeholder="Type weekly intention here..."
                       onChange={(e) => {
                         setTaskData({ ...taskData, title: e.target.value });
@@ -115,6 +117,7 @@ function Dashboard() {
                     <input
                       type="text"
                       className="form-control"
+                      value={taskData.content}
                       id="exampleFormControlInput1"
                       placeholder="Type weekly intention here..."
                       onChange={(e) => {

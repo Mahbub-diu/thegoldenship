@@ -1,11 +1,14 @@
 import { PrismaClient } from "@prisma/client";
+import { getSession } from "next-auth/react";
 import { NextRequest, NextResponse } from "next/server";
+import { options } from "../auth/[...nextauth]/options";
+import { getServerSession } from "next-auth";
 let bcrypt = require("bcrypt");
 //signup in by prisma
 const prisma = new PrismaClient();
 export const POST = async (req: NextRequest) => {
   let data = await req.json();
-  console.log(data);
+ 
   const { name, email, password } = data;
   try {
     //user exist
