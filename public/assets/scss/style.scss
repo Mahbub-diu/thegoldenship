@@ -207,11 +207,87 @@ img {
           margin-bottom: 0;
         }
       }
+      .profile-box {
+        .dropdown-toggle {
+          .avatar {
+            position: relative;
+            width: 2.375rem;
+            height: 2.375rem;
+            cursor: pointer;
+
+            &::after {
+              content: '';
+              position: absolute;
+              bottom: 0;
+              right: 3px;
+              width: 8px;
+              height: 8px;
+              border-radius: 100%;
+              box-shadow: 0 0 0 2px #fff;
+            }
+          }
+
+          .avatar.avatar-online {
+            &::after {
+              background-color: #28c76f;
+            }
+          }
+        }
+        .dropdown-menu {
+          min-width: 14rem;
+          // right: 0;
+          left: auto;
+          top: 100%;
+          font-family: $sf-font;
+          background: $d-gray;
+
+          .dropdown-item {
+            line-height: 1.375;
+            width: calc(100% - 1rem);
+            margin: 0.25rem 0.5rem;
+            border-radius: 0.375rem;
+            clear: both;
+            font-weight: 400;
+            color: var(--bs-dropdown-link-color);
+            text-align: inherit;
+            white-space: nowrap;
+            background-color: transparent;
+            border: 0;
+            color: $white;
+            font-size: 16px;
+
+            .avatar {
+              position: relative;
+              width: 2.375rem;
+              height: 2.375rem;
+              cursor: pointer;
+            }
+
+            span {
+              color: $white !important;
+            }
+
+            small {
+              color: $white !important;
+            }
+
+            &:hover {
+              color: $purple-brand;
+              span {
+                color: $purple-brand !important;
+              }
+
+              // small {
+              //   color: $purple-brand !important;
+              // }
+            }
+          }
+        }
+      }
     }
   }
 
   .dashboard-card-col {
-
     // margin-bottom: 24px;
     &:nth-last-child(-n + 2) {
       margin-bottom: 0;
@@ -674,9 +750,11 @@ img {
               }
 
               table {
-                thead {}
+                thead {
+                }
 
-                tbody {}
+                tbody {
+                }
               }
             }
           }
@@ -1013,5 +1091,118 @@ img {
     color: #fff;
     right: 0%;
     bottom: -35px;
+  }
+}
+.dashboard-card {
+  .rewards-card-header {
+    @include rewards-common-card-header;
+
+    h2.rewards-card-title {
+      font-family: $sf-font;
+      font-weight: 700;
+      font-size: 20px;
+      // line-height: 38px;
+      text-transform: capitalize;
+      color: $white;
+      margin-bottom: 0;
+      text-align: center !important;
+    }
+  }
+
+  .rewards-table {
+    tr {
+      td {
+        font-family: $sf-font;
+        vertical-align: middle;
+        background: transparent;
+        color: $white;
+
+        .redeem-btn {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          padding: 8px 14px;
+          color: $white;
+          width: 120px;
+          border-radius: 10px;
+          font-size: 13px;
+          font-weight: 700;
+        }
+
+        .redeem-btn-1 {
+          background: $purple-brand;
+        }
+
+        .redeem-btn-2 {
+          color: #7f8283;
+        }
+      }
+    }
+  }
+
+  .rewards-card-content {
+    h5 {
+      font-family: $sf-font;
+      color: $white;
+      font-size: 16px;
+      margin-bottom: 25px;
+    }
+
+    .nav {
+      padding: 0;
+
+      a.nav-link {
+        padding: 0;
+
+        .rewards-point {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+
+          .points-description {
+            background: #171717;
+            padding: 12px 15px;
+            border-radius: 10px;
+            color: $white;
+
+            h5 {
+              margin-bottom: 5px;
+              font-family: $sf-font;
+              color: $white;
+              font-size: 16px;
+            }
+
+            p {
+              margin: 0;
+              font-family: $sf-font;
+              font-size: 12px;
+            }
+          }
+
+          .points {
+            h5 {
+              margin: 0;
+              font-family: $sf-font;
+              color: $white;
+              font-size: 16px;
+            }
+          }
+        }
+      }
+    }
+
+    h5.extra-point-title {
+      margin-bottom: 12px;
+    }
+
+    ul.extra-point-title-list {
+      padding-left: 30px;
+
+      li {
+        font-family: $sf-font;
+        color: $white;
+        font-weight: 400;
+      }
+    }
   }
 }
