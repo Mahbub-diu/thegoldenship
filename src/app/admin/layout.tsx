@@ -96,7 +96,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
         <Script src="/admin/assets/vendor/js/template-customizer.js"></Script>
         <Script src="/admin/assets/js/config.js"></Script>
       </head>
-      <body className={inter.className}>
+      <body>
         <div className="layout-wrapper layout-content-navbar  ">
           <div className="layout-container">
             <Sidebar />
