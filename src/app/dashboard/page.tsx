@@ -1,41 +1,44 @@
-'use client';
-import { PrismaClient } from '@prisma/client';
-import React, { useEffect, useState } from 'react';
-import { options } from '../api/auth/[...nextauth]/options';
-import { signOut, useSession } from 'next-auth/react';
-import axios from 'axios';
-import moment from 'moment';
-import Link from 'next/link';
+"use client";
+import { PrismaClient } from "@prisma/client";
+import React, { useEffect, useState } from "react";
+import { options } from "../api/auth/[...nextauth]/options";
+import { signOut, useSession } from "next-auth/react";
+import axios from "axios";
+import moment from "moment";
+import Link from "next/link";
+import TaskMakeShow from "../components/dashboard/TaskMakeShow";
+import { toast } from "react-toastify";
+import { TaskDataField } from "../../../helper/types";
 
 function Dashboard() {
   const { data: session } = useSession();
   let [coreTask, setCoreTask] = useState<any[]>([]);
   let [sevenDayTask, setSevenDayTask] = useState<any[]>([]);
   let [monthTask, setMonthTask] = useState<any[]>([]);
-  let [todayDate, setTodayDate] = useState<any>(moment().format('LL')); // August 3, 2021
-  let [taskData, setTaskData] = useState({
-    title: '',
-    content: '',
-    authorId: null,
-  });
+  let [todayDate, setTodayDate] = useState<any>(moment().format("LL")); // August 3, 2021
 
   const getCoreTask = async () => {
-    let res = await axios.get('/api/tasks/task');
+    let res = await axios.get("/api/tasks/task");
     console.log(res.data);
     setCoreTask(res?.data?.todayTasks);
     setMonthTask(res?.data?.tasksByDay);
     setSevenDayTask(res?.data?.sevenDaysTasks);
   };
-  const addTask = async () => {
-    let res = await axios.post('/api/tasks/task', {
+  const addTask = async (taskData: TaskDataField, setTaskData: any) => {
+    if (!taskData.title || !taskData.content) {
+      toast.error("Please fill all the fields");
+      return false;
+    }
+    let res = await axios.post("/api/tasks/task", {
       ...taskData,
     });
-    console.log(res);
+
     setCoreTask((state) => [...state, res.data]);
-    setTaskData({ ...taskData, title: '', content: '' });
+    setSevenDayTask((state) => [...state, res.data]);
+    setTaskData({ ...taskData, title: "", content: "" });
   };
   useEffect(() => {
-    setTodayDate(moment().format('MMMM Do YYYY, h:mm:ss a'));
+    setTodayDate(moment().format("MMMM Do YYYY, h:mm:ss a"));
     getCoreTask();
   }, []);
   return (
@@ -55,270 +58,174 @@ function Dashboard() {
                   <div className="header-box">
                     <h1 className="dashboard-title d-flex justify-content-between">
                       <div>
-                        Hlw , {session?.user?.name}{' '}
+                        Hlw , {session?.user?.name}{" "}
                         <p className="dates">{todayDate}</p>
                       </div>
                       <p>
-                        <button
-                          onClick={() => signOut()}
-                          className="btn btn-danger"
-                        >
-                          logout
-                        </button>
+                        <div className="profile-box">
+                          <a
+                            className="nav-link dropdown-toggle hide-arrow show"
+                            href="javascript:void(0);"
+                            data-bs-toggle="dropdown"
+                            aria-expanded="true"
+                          >
+                            <div className="avatar avatar-online">
+                              <img
+                                src="http://36.255.71.212:8090/assets/img/avatars/1.png"
+                                className="h-auto rounded-circle"
+                              />
+                            </div>
+                          </a>
+                          <ul
+                            className="dropdown-menu dropdown-menu-end show"
+                            data-bs-popper="static"
+                          >
+                            <li>
+                              <a
+                                className="dropdown-item"
+                                href="pages-account-settings-account.html"
+                              >
+                                <div className="d-flex">
+                                  <div className="flex-shrink-0 me-3">
+                                    <div className="avatar avatar-online">
+                                      <img
+                                        src="http://36.255.71.212:8090/assets/img/avatars/1.png"
+                                        className="h-auto rounded-circle"
+                                      />
+                                    </div>
+                                  </div>
+                                  <div className="flex-shrink-1">
+                                    <span className="fw-semibold d-block">
+                                      {session?.user?.name}
+                                    </span>
+                                    <small className="text-muted">
+                                      {session?.user?.email}
+                                    </small>
+                                  </div>
+                                </div>
+                              </a>
+                            </li>
+                            <li>
+                              <div className="dropdown-divider"></div>
+                            </li>
+                            <li>
+                              <a
+                                className="dropdown-item"
+                                href="pages-profile-user.html"
+                              >
+                                <i className="ti ti-user-check me-2 ti-sm"></i>
+                                <span className="align-middle">My Profile</span>
+                              </a>
+                            </li>
+                            <li>
+                              <a
+                                className="dropdown-item"
+                                href="pages-account-settings-account.html"
+                              >
+                                <i className="ti ti-settings me-2 ti-sm"></i>
+                                <span className="align-middle">Settings</span>
+                              </a>
+                            </li>
+                            <li>
+                              <a
+                                className="dropdown-item"
+                                href="pages-account-settings-billing.html"
+                              >
+                                <span className="d-flex align-items-center align-middle">
+                                  <i className="flex-shrink-0 ti ti-credit-card me-2 ti-sm"></i>
+                                  <span className="flex-grow-1 align-middle">
+                                    Billing
+                                  </span>
+                                  <span className="flex-shrink-0 badge badge-center rounded-pill bg-label-danger w-px-20 h-px-20">
+                                    2
+                                  </span>
+                                </span>
+                              </a>
+                            </li>
+                            <li>
+                              <div className="dropdown-divider"></div>
+                            </li>
+                            <li>
+                              <a
+                                className="dropdown-item"
+                                href="pages-help-center-landing.html"
+                              >
+                                <i className="ti ti-lifebuoy me-2 ti-sm"></i>
+                                <span className="align-middle">Help</span>
+                              </a>
+                            </li>
+                            <li>
+                              <a
+                                className="dropdown-item"
+                                href="pages-faq.html"
+                              >
+                                <i className="ti ti-help me-2 ti-sm"></i>
+                                <span className="align-middle">FAQ</span>
+                              </a>
+                            </li>
+                            <li>
+                              <a
+                                className="dropdown-item"
+                                href="pages-pricing.html"
+                              >
+                                <i className="ti ti-currency-dollar me-2 ti-sm"></i>
+                                <span className="align-middle">Pricing</span>
+                              </a>
+                            </li>
+                            <li>
+                              <div className="dropdown-divider"></div>
+                            </li>
+                            <li>
+                              <a
+                                onClick={() => signOut()}
+                                className="dropdown-item"
+                                href="javascript:void(0);"
+                              >
+                                <i className="ti ti-logout me-2 ti-sm"></i>
+                                <span className="align-middle">Log Out</span>
+                              </a>
+                            </li>
+                          </ul>
+                        </div>
                       </p>
                     </h1>
-                  </div>
-                  <div className="profile-box">
-                    <a
-                      className="nav-link dropdown-toggle hide-arrow show"
-                      href="javascript:void(0);"
-                      data-bs-toggle="dropdown"
-                      aria-expanded="true"
-                    >
-                      <div className="avatar avatar-online">
-                        <img
-                          src="http://36.255.71.212:8090/assets/img/avatars/1.png"
-                          className="h-auto rounded-circle"
-                        />
-                      </div>
-                    </a>
-                    <ul
-                      className="dropdown-menu dropdown-menu-end show"
-                      data-bs-popper="static"
-                    >
-                      <li>
-                        <a
-                          className="dropdown-item"
-                          href="pages-account-settings-account.html"
-                        >
-                          <div className="d-flex">
-                            <div className="flex-shrink-0 me-3">
-                              <div className="avatar avatar-online">
-                                <img
-                                  src="http://36.255.71.212:8090/assets/img/avatars/1.png"
-                                  className="h-auto rounded-circle"
-                                />
-                              </div>
-                            </div>
-                            <div className="flex-shrink-1">
-                              <span className="fw-semibold d-block">
-                                Nazmus Sakib
-                              </span>
-                              <small className="text-muted">Client</small>
-                            </div>
-                          </div>
-                        </a>
-                      </li>
-                      <li>
-                        <div className="dropdown-divider"></div>
-                      </li>
-                      <li>
-                        <a
-                          className="dropdown-item"
-                          href="pages-profile-user.html"
-                        >
-                          <i className="ti ti-user-check me-2 ti-sm"></i>
-                          <span className="align-middle">My Profile</span>
-                        </a>
-                      </li>
-                      <li>
-                        <a
-                          className="dropdown-item"
-                          href="pages-account-settings-account.html"
-                        >
-                          <i className="ti ti-settings me-2 ti-sm"></i>
-                          <span className="align-middle">Settings</span>
-                        </a>
-                      </li>
-                      <li>
-                        <a
-                          className="dropdown-item"
-                          href="pages-account-settings-billing.html"
-                        >
-                          <span className="d-flex align-items-center align-middle">
-                            <i className="flex-shrink-0 ti ti-credit-card me-2 ti-sm"></i>
-                            <span className="flex-grow-1 align-middle">
-                              Billing
-                            </span>
-                            <span className="flex-shrink-0 badge badge-center rounded-pill bg-label-danger w-px-20 h-px-20">
-                              2
-                            </span>
-                          </span>
-                        </a>
-                      </li>
-                      <li>
-                        <div className="dropdown-divider"></div>
-                      </li>
-                      <li>
-                        <a
-                          className="dropdown-item"
-                          href="pages-help-center-landing.html"
-                        >
-                          <i className="ti ti-lifebuoy me-2 ti-sm"></i>
-                          <span className="align-middle">Help</span>
-                        </a>
-                      </li>
-                      <li>
-                        <a className="dropdown-item" href="pages-faq.html">
-                          <i className="ti ti-help me-2 ti-sm"></i>
-                          <span className="align-middle">FAQ</span>
-                        </a>
-                      </li>
-                      <li>
-                        <a className="dropdown-item" href="pages-pricing.html">
-                          <i className="ti ti-currency-dollar me-2 ti-sm"></i>
-                          <span className="align-middle">Pricing</span>
-                        </a>
-                      </li>
-                      <li>
-                        <div className="dropdown-divider"></div>
-                      </li>
-                      <li>
-                        <a className="dropdown-item" href="javascript:void(0);">
-                          <i className="ti ti-logout me-2 ti-sm"></i>
-                          <span className="align-middle">Log Out</span>
-                        </a>
-                      </li>
-                    </ul>
                   </div>
                 </div>
               </div>
             </div>
           </div>
           <div className="row">
-            <div className="col-xs-12 col-sm-12 col-md-5 col-lg-5 dashboard-card-col">
-              <div className="dashboard-card h-100">
-                <div className="dashboard-card-header">
-                  <h2 className="dash-card-title">Core Tasks</h2>
-                </div>
-                <div className="checked-tasks">
-                  {coreTask?.map((task) => (
-                    <div className="single-task-flex" key={task.id}>
-                      <div className="check-icon">
-                        <div className="form-check">
-                          <input
-                            className="form-check-input"
-                            type="checkbox"
-                            value=""
-                            id="flexCheckDefault"
-                            checked
-                          />
-                        </div>
-                      </div>
-                      <div className="task-box">
-                        <button
-                          className="btn check-task-btn"
-                          data-bs-toggle="modal"
-                          data-bs-target="#exampleModal"
-                        >
-                          {task.title}
-                        </button>
-                      </div>
-                    </div>
-                  ))}
-                  <div className="single-task-input">
-                    <input
-                      type="text"
-                      className="form-control"
-                      id="exampleFormControlInput1"
-                      value={taskData.title}
-                      placeholder="Type weekly intention here..."
-                      onChange={(e) => {
-                        setTaskData({ ...taskData, title: e.target.value });
-                      }}
-                    />
-                  </div>
-                  <div className="single-task-input">
-                    <input
-                      type="text"
-                      className="form-control"
-                      value={taskData.content}
-                      id="exampleFormControlInput1"
-                      placeholder="Type weekly intention here..."
-                      onChange={(e) => {
-                        setTaskData({ ...taskData, content: e.target.value });
-                      }}
-                    />
-                  </div>
-                  <div className="add-task-btn-wrapper">
-                    <button className="add-task-btn" onClick={addTask}>
-                      <img src="./assets/images/icon/plus_w.png" alt="" />
-                      Add Task
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
+            <TaskMakeShow
+              data={coreTask}
+              title="Today's Task"
+              addTask={addTask}
+            />
             <div className="col-xs-12 col-sm-12 col-md-7 col-lg-7 dashboard-card-col">
               <div className="dashboard-card mb-20 ">
                 <div className="dashboard-card-header">
                   <h2 className="dash-card-title">Calender</h2>
                 </div>
                 <div className="calendar-grid-main">
-                  <div className="single-day-box">
-                    <div className="day-title">Monday</div>
-                    <div className="single-task">
-                      10AM-12PM Create layout for Journey App (Sprints, Roadmap)
-                    </div>
-                    <div className="single-task">
-                      10AM-12PM Create layout for Journey App (Sprints, Roadmap)
-                    </div>
-                    <div className="single-task">
-                      10AM-12PM Create layout for Journey App (Sprints, Roadmap)
-                    </div>
-                  </div>
-                  <div className="single-day-box">
-                    <div className="day-title">tuesday</div>
-                    <div className="single-task">
-                      10AM-12PM Create layout for Journey App (Sprints, Roadmap)
-                    </div>
-                    <div className="single-task">
-                      10AM-12PM Create layout for Journey App (Sprints, Roadmap)
-                    </div>
-                    <div className="single-task">
-                      10AM-12PM Create layout for Journey App (Sprints, Roadmap)
-                    </div>
-                  </div>
-                  <div className="single-day-box active">
-                    <div className="day-title">Wednesday</div>
-                    <div className="single-task">
-                      10AM-12PM Create layout for Journey App (Sprints, Roadmap)
-                    </div>
-                    <div className="single-task">
-                      10AM-12PM Create layout for Journey App (Sprints, Roadmap)
-                    </div>
-                    <div className="single-task">
-                      10AM-12PM Create layout for Journey App (Sprints, Roadmap)
-                    </div>
-                  </div>
-                  <div className="single-day-box">
-                    <div className="day-title">thursday</div>
-                    <div className="single-task">
-                      10AM-12PM Create layout for Journey App (Sprints, Roadmap)
-                    </div>
-                    <div className="single-task">
-                      10AM-12PM Create layout for Journey App (Sprints, Roadmap)
-                    </div>
-                    <div className="single-task">
-                      10AM-12PM Create layout for Journey App (Sprints, Roadmap)
-                    </div>
-                  </div>
-                  <div className="single-day-box">
-                    <div className="day-title">friday</div>
-                    <div className="single-task">
-                      10AM-12PM Create layout for Journey App (Sprints, Roadmap)
-                    </div>
-                    <div className="single-task">
-                      10AM-12PM Create layout for Journey App (Sprints, Roadmap)
-                    </div>
-                    <div className="single-task">
-                      10AM-12PM Create layout for Journey App (Sprints, Roadmap)
-                    </div>
-                  </div>
+                  {Object.keys(monthTask).map((item) => {
+                    console.log(monthTask)
+                    return (
+                      <div className="single-day-box" key={item}>
+                        <div className="day-title">{item}</div>
+                        {monthTask[item]?.map((task:any) => {
+                          return (
+                            <div className="single-task" key={task.id}>
+                            {
+                              task?.title
+                            }
+                            </div>
+                          );
+                        })}
+                      </div>
+                    );
+                  })}
                 </div>
               </div>
-
-              <div className="dashboard-card ">
+              {/* <div className="dashboard-card ">
                 <div className="dashboard-card-header">
                   <h2 className="dash-card-title">This weeks Quest</h2>
                   <div className="day d-flex align-items-center">
@@ -379,7 +286,13 @@ function Dashboard() {
                     />
                   </div>
                 </div>
-              </div>
+              </div> */}
+              <TaskMakeShow
+                data={sevenDayTask}
+                title="This weeks Quest"
+                addTask={addTask}
+                cols="sevenDay"
+              />
             </div>
 
             <div className="col-xs-12 col-sm-12 col-md-7 col-lg-7 dashboard-card-col d-none">
@@ -475,48 +388,48 @@ function Dashboard() {
                       <span className="Progress">
                         <span
                           style={{
-                            background: '#7a00f3 !important',
-                            width: '33.33%',
-                            border: '1px solid #333636',
+                            background: "#7a00f3 !important",
+                            width: "33.33%",
+                            border: "1px solid #333636",
                           }}
                           aria-label="JavaScript 71.7"
                           className="Progress-item partent color-bg-success-emphasis"
                         >
                           <span
                             style={{
-                              backgroundColor: '#7a00f3 !important',
-                              width: '25%',
-                              border: '1px solid #333636',
-                              height: '100%',
+                              backgroundColor: "#7a00f3 !important",
+                              width: "25%",
+                              border: "1px solid #333636",
+                              height: "100%",
                             }}
                             aria-label="JavaScript 71.7"
                             className="Progress-item-child child "
                           ></span>
                           <span
                             style={{
-                              backgroundColor: '#7a00f3 !important',
-                              width: '25%',
-                              border: '1px solid #333636',
-                              height: '100%',
+                              backgroundColor: "#7a00f3 !important",
+                              width: "25%",
+                              border: "1px solid #333636",
+                              height: "100%",
                             }}
                             aria-label="JavaScript 71.7"
                             className="Progress-item-child child "
                           ></span>
                           <span
                             style={{
-                              backgroundColor: '#7a00f3 !important',
-                              width: '25%',
-                              border: '1px solid #333636',
-                              height: '100%',
+                              backgroundColor: "#7a00f3 !important",
+                              width: "25%",
+                              border: "1px solid #333636",
+                              height: "100%",
                             }}
                             aria-label="JavaScript 71.7"
                             className="Progress-item-child child "
                           ></span>
                           <span
                             style={{
-                              backgroundColor: '#7a00f3 !important',
-                              width: '25%',
-                              height: '100%',
+                              backgroundColor: "#7a00f3 !important",
+                              width: "25%",
+                              height: "100%",
                             }}
                             aria-label="JavaScript 71.7"
                             className="Progress-item-child child "
@@ -525,10 +438,10 @@ function Dashboard() {
                         </span>
                         <span
                           style={{
-                            backgroundColor: 'transparent !important',
-                            width: '33.33%',
-                            height: '100%',
-                            border: '1px solid #333636',
+                            backgroundColor: "transparent !important",
+                            width: "33.33%",
+                            height: "100%",
+                            border: "1px solid #333636",
                           }}
                           className="Progress-item "
                         >
@@ -536,10 +449,10 @@ function Dashboard() {
                         </span>
                         <span
                           style={{
-                            backgroundColor: 'transparent !important',
-                            width: '33.33%',
-                            height: '100%',
-                            border: '1px solid #333636',
+                            backgroundColor: "transparent !important",
+                            width: "33.33%",
+                            height: "100%",
+                            border: "1px solid #333636",
                           }}
                           className="Progress-item "
                         >

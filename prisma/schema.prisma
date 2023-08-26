@@ -7,34 +7,37 @@ generator client {
 
 datasource db {
   provider = "mysql"
-  url      = "mysql://root:@localhost:3306/thegoldenship"
+  url      = "mysql://root:@localhost:3306/visionflow"
 }
 
 model Task {
-  id           String  @id @default(cuid())
-  title        String
-  content      String?
-  parentTask   Task?   @relation(name: "SubTasks", fields: [parentTaskId], references: [id])
-  parentTaskId String?
-  subTasks     Task[]  @relation(name: "SubTasks")
-  createdAt DateTime @default(now()) @map(name: "created_at")
-  updatedAt DateTime @updatedAt @map(name: "updated_at")
-  published Boolean  @default(false)
-  status    String?  @default("pending")
-  author    User?    @relation(fields: [authorId], references: [id])
-  authorId  String?
+  id              String    @id @default(cuid())
+  title           String
+  content         String?
+  label           String?
+  color           String?
+  allChildrenDone Boolean?  @default(false)
+  parentTask      Task?     @relation(name: "SubTasks", fields: [parentTaskId], references: [id])
+  parentTaskId    String?
+  subTasks        Task[]    @relation(name: "SubTasks")
+  createdAt       DateTime  @default(now()) @map(name: "created_at")
+  updatedAt       DateTime  @updatedAt @map(name: "updated_at")
+  endDate         DateTime? @map(name: "end_date")
+  published       Boolean   @default(false)
+  status          String?   @default("pending")
+  author          User?     @relation(fields: [authorId], references: [id])
+  authorId        String?
 }
 
 model User {
-  id        String   @id @default(cuid())
-  name      String?
-  email     String?  @unique
-  password  String?
-  provider  String?  @default("local")
+  id         String   @id @default(cuid())
+  name       String?
+  email      String?  @unique
+  password   String?
+  provider   String?  @default("local")
   providerId String?
-  role     String?  @default("student")
-  createdAt DateTime @default(now()) @map(name: "created_at")
-  updatedAt DateTime @updatedAt @map(name: "updated_at")
-  tasks     Task[]
-
+  role       String?  @default("student")
+  createdAt  DateTime @default(now()) @map(name: "created_at")
+  updatedAt  DateTime @updatedAt @map(name: "updated_at")
+  tasks      Task[]
 }

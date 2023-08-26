@@ -10,3 +10,9 @@ export type User= {
     provider_id ?: string,
 
 }
+
+export type TaskDataField={
+    title: string,
+    content: string,
+    authorId: null,
+}
