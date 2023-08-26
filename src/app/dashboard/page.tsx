@@ -206,7 +206,7 @@ function Dashboard() {
                   <h2 className="dash-card-title">Calender</h2>
                 </div>
                 <div className="calendar-grid-main">
-                  {Object.keys(monthTask).map((item) => {
+                  {Object.keys(monthTask).map((item:any) => {
                     console.log(monthTask)
                     return (
                       <div className="single-day-box" key={item}>
