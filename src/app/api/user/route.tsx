@@ -2,7 +2,7 @@ import { PrismaClient } from "@prisma/client";
 import { getServerSession } from "next-auth";
 import { getToken } from "next-auth/jwt";
 import { NextRequest, NextResponse } from "next/server";
-import { options } from "../../auth/[...nextauth]/options";
+import { options } from "../auth/[...nextauth]/options";
 // import handler from "../../auth/[...nextauth]/route";
 let bcrypt = require("bcrypt");
 //post in by prisma
