@@ -1,6 +1,27 @@
+"use client";
+
 import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { useEffect, useState } from "react";
 
 export default function Navbar() {
+  let pathName=usePathname()
+  if(pathName=="/" || pathName=="/login" || pathName=="/signup"){
+    return <></>
+  }
+  let [todayDate, setTodayDate] = useState({
+    month: "Janu",
+    date: 1
+  });
+  useEffect(() => {
+    let date = new Date();
+    let month = date.toLocaleString("default", { month: "long" });
+    let dateNum = date.getDate();
+    setTodayDate({
+      month: month,
+      date: dateNum,
+    });
+  }, []);
   return (
     <section className="fixed-nav-main">
       <div className="container-xxl">
@@ -11,8 +32,8 @@ export default function Navbar() {
                 <li className="nav-item">
                   <Link className="nav-link active" href="/dashboard">
                     <div className="calender-box">
-                      <div className="month-name">August</div>
-                      <div className="date">03</div>
+                      <div className="month-name">{todayDate.month}</div>
+                      <div className="date">{todayDate.date}</div>
                     </div>
                     dashboard
                   </Link>
@@ -34,12 +55,12 @@ export default function Navbar() {
                   </Link>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link" href="#">
+                  <Link className="nav-link" href="/reward">
                     <div className="icon-box">
                       <img src="assets/images/icon/star.png" alt="" />
                     </div>
                     <div className="nav-title">rewards</div>
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </div>

@@ -39,7 +39,7 @@ export default function RootLayout({
       </head>
       <body className={inter.className}>
         <AuthProvider>{children}</AuthProvider>
-<Navbar/>
+        <Navbar />
         {/* </SessionProviderWrapper> */}
       </body>
 
