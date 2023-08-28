@@ -25,7 +25,7 @@ function Dashboard() {
     setSevenDayTask(res?.data?.sevenDaysTasks);
   };
   const addTask = async (taskData: TaskDataField, setTaskData: any) => {
-    if (!taskData.title || !taskData.content) {
+    if (taskData.title == "" && taskData.content == "") {
       toast.error("Please fill all the fields");
       return false;
     }
@@ -206,17 +206,15 @@ function Dashboard() {
                   <h2 className="dash-card-title">Calender</h2>
                 </div>
                 <div className="calendar-grid-main">
-                  {Object.keys(monthTask).map((item:any) => {
-                    console.log(monthTask)
+                  {Object.keys(monthTask).map((item: any) => {
+                    console.log(monthTask);
                     return (
                       <div className="single-day-box" key={item}>
                         <div className="day-title">{item}</div>
-                        {monthTask[item]?.map((task:any) => {
+                        {monthTask[item]?.map((task: any) => {
                           return (
                             <div className="single-task" key={task.id}>
-                            {
-                              task?.title
-                            }
+                              {task?.title}
                             </div>
                           );
                         })}

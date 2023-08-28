@@ -1,289 +1,47 @@
-import React from "react";
+"use client";
+import { UserCount } from "@/app/components/admin/dashboard/UserCount";
+import React, { useEffect, useState } from "react";
 
 const UserPage = () => {
+  let [users, setUsers] = useState<any[]>([]);
+  let updatedUser = (e: any, id: any) => {
+    let role = e.target.value;
+    fetch(`/api/admin/user/${id}`, {
+      method: "POST",
+      body: JSON.stringify({
+        role: role,
+      }),
+    })
+      .then((res) => res.json())
+                                                                                                                                    
+      .then((data) => {
+        // data value change
+        let newUsers = users.map((user) => {
+          if (user.id == id) {
+            user.role = role;
+          }
+          return user;
+        });
+        setUsers(newUsers);
+      });
+  };
+  useEffect(() => {
+    fetch("/api/admin/user", {
+      method: "GET",
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        setUsers(data?.data);
+      });
+  }, []);
+
   return (
     <>
       {" "}
       <div className="container-xxl flex-grow-1 container-p-y">
         <div className="row g-4">
-          <div className="col-xl-4 col-lg-6 col-md-6">
-            <div className="card">
-              <div className="card-body">
-                <div className="d-flex justify-content-between">
-                  <h6 className="fw-normal mb-2">Total 4 users</h6>
-                  <ul className="list-unstyled d-flex align-items-center avatar-group mb-0">
-                    <li
-                      data-bs-toggle="tooltip"
-                      data-popup="tooltip-custom"
-                      data-bs-placement="top"
-                      title="Vinnie Mostowy"
-                      className="avatar avatar-sm pull-up"
-                    >
-                      <img
-                        className="rounded-circle"
-                        src="/admin/assets/img/avatars/5.png"
-                        alt="Avatar"
-                      />
-                    </li>
-                    <li
-                      data-bs-toggle="tooltip"
-                      data-popup="tooltip-custom"
-                      data-bs-placement="top"
-                      title="Allen Rieske"
-                      className="avatar avatar-sm pull-up"
-                    >
-                      <img
-                        className="rounded-circle"
-                        src="/admin/assets/img/avatars/12.png"
-                        alt="Avatar"
-                      />
-                    </li>
-                    <li
-                      data-bs-toggle="tooltip"
-                      data-popup="tooltip-custom"
-                      data-bs-placement="top"
-                      title="Julee Rossignol"
-                      className="avatar avatar-sm pull-up"
-                    >
-                      <img
-                        className="rounded-circle"
-                        src="/admin/assets/img/avatars/6.png"
-                        alt="Avatar"
-                      />
-                    </li>
-                    <li
-                      data-bs-toggle="tooltip"
-                      data-popup="tooltip-custom"
-                      data-bs-placement="top"
-                      title="Kaith D'souza"
-                      className="avatar avatar-sm pull-up"
-                    >
-                      <img
-                        className="rounded-circle"
-                        src="/admin/assets/img/avatars/3.png"
-                        alt="Avatar"
-                      />
-                    </li>
-                    <li
-                      data-bs-toggle="tooltip"
-                      data-popup="tooltip-custom"
-                      data-bs-placement="top"
-                      title="John Doe"
-                      className="avatar avatar-sm pull-up"
-                    >
-                      <img
-                        className="rounded-circle"
-                        src="/admin/assets/img/avatars/1.png"
-                        alt="Avatar"
-                      />
-                    </li>
-                  </ul>
-                </div>
-                <div className="d-flex justify-content-between align-items-end mt-1">
-                  <div className="role-heading">
-                    <h4 className="mb-1">Administrator</h4>
-                    <a
-                      href="javascript:;"
-                      data-bs-toggle="modal"
-                      data-bs-target="#addRoleModal"
-                      className="role-edit-modal"
-                    >
-                      <span>Edit Role</span>
-                    </a>
-                  </div>
-                  <a href="javascript:void(0);" className="text-muted">
-                    <i className="ti ti-copy ti-md"></i>
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div className="col-xl-4 col-lg-6 col-md-6">
-            <div className="card">
-              <div className="card-body">
-                <div className="d-flex justify-content-between">
-                  <h6 className="fw-normal mb-2">Total 7 users</h6>
-                  <ul className="list-unstyled d-flex align-items-center avatar-group mb-0">
-                    <li
-                      data-bs-toggle="tooltip"
-                      data-popup="tooltip-custom"
-                      data-bs-placement="top"
-                      title="Jimmy Ressula"
-                      className="avatar avatar-sm pull-up"
-                    >
-                      <img
-                        className="rounded-circle"
-                        src="/admin/assets/img/avatars/4.png"
-                        alt="Avatar"
-                      />
-                    </li>
-                    <li
-                      data-bs-toggle="tooltip"
-                      data-popup="tooltip-custom"
-                      data-bs-placement="top"
-                      title="John Doe"
-                      className="avatar avatar-sm pull-up"
-                    >
-                      <img
-                        className="rounded-circle"
-                        src="/admin/assets/img/avatars/1.png"
-                        alt="Avatar"
-                      />
-                    </li>
-                    <li
-                      data-bs-toggle="tooltip"
-                      data-popup="tooltip-custom"
-                      data-bs-placement="top"
-                      title="Kristi Lawker"
-                      className="avatar avatar-sm pull-up"
-                    >
-                      <img
-                        className="rounded-circle"
-                        src="/admin/assets/img/avatars/2.png"
-                        alt="Avatar"
-                      />
-                    </li>
-                    <li
-                      data-bs-toggle="tooltip"
-                      data-popup="tooltip-custom"
-                      data-bs-placement="top"
-                      title="Kaith D'souza"
-                      className="avatar avatar-sm pull-up"
-                    >
-                      <img
-                        className="rounded-circle"
-                        src="/admin/assets/img/avatars/3.png"
-                        alt="Avatar"
-                      />
-                    </li>
-                    <li
-                      data-bs-toggle="tooltip"
-                      data-popup="tooltip-custom"
-                      data-bs-placement="top"
-                      title="Danny Paul"
-                      className="avatar avatar-sm pull-up"
-                    >
-                      <img
-                        className="rounded-circle"
-                        src="/admin/assets/img/avatars/7.png"
-                        alt="Avatar"
-                      />
-                    </li>
-                  </ul>
-                </div>
-                <div className="d-flex justify-content-between align-items-end mt-1">
-                  <div className="role-heading">
-                    <h4 className="mb-1">Manager</h4>
-                    <a
-                      href="javascript:;"
-                      data-bs-toggle="modal"
-                      data-bs-target="#addRoleModal"
-                      className="role-edit-modal"
-                    >
-                      <span>Edit Role</span>
-                    </a>
-                  </div>
-                  <a href="javascript:void(0);" className="text-muted">
-                    <i className="ti ti-copy ti-md"></i>
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div className="col-xl-4 col-lg-6 col-md-6">
-            <div className="card">
-              <div className="card-body">
-                <div className="d-flex justify-content-between">
-                  <h6 className="fw-normal mb-2">Total 5 users</h6>
-                  <ul className="list-unstyled d-flex align-items-center avatar-group mb-0">
-                    <li
-                      data-bs-toggle="tooltip"
-                      data-popup="tooltip-custom"
-                      data-bs-placement="top"
-                      title="Andrew Tye"
-                      className="avatar avatar-sm pull-up"
-                    >
-                      <img
-                        className="rounded-circle"
-                        src="/admin/assets/img/avatars/6.png"
-                        alt="Avatar"
-                      />
-                    </li>
-                    <li
-                      data-bs-toggle="tooltip"
-                      data-popup="tooltip-custom"
-                      data-bs-placement="top"
-                      title="Rishi Swaat"
-                      className="avatar avatar-sm pull-up"
-                    >
-                      <img
-                        className="rounded-circle"
-                        src="/admin/assets/img/avatars/9.png"
-                        alt="Avatar"
-                      />
-                    </li>
-                    <li
-                      data-bs-toggle="tooltip"
-                      data-popup="tooltip-custom"
-                      data-bs-placement="top"
-                      title="Rossie Kim"
-                      className="avatar avatar-sm pull-up"
-                    >
-                      <img
-                        className="rounded-circle"
-                        src="/admin/assets/img/avatars/12.png"
-                        alt="Avatar"
-                      />
-                    </li>
-                    <li
-                      data-bs-toggle="tooltip"
-                      data-popup="tooltip-custom"
-                      data-bs-placement="top"
-                      title="Kim Merchent"
-                      className="avatar avatar-sm pull-up"
-                    >
-                      <img
-                        className="rounded-circle"
-                        src="/admin/assets/img/avatars/10.png"
-                        alt="Avatar"
-                      />
-                    </li>
-                    <li
-                      data-bs-toggle="tooltip"
-                      data-popup="tooltip-custom"
-                      data-bs-placement="top"
-                      title="Sam D'souza"
-                      className="avatar avatar-sm pull-up"
-                    >
-                      <img
-                        className="rounded-circle"
-                        src="/admin/assets/img/avatars/13.png"
-                        alt="Avatar"
-                      />
-                    </li>
-                  </ul>
-                </div>
-                <div className="d-flex justify-content-between align-items-end mt-1">
-                  <div className="role-heading">
-                    <h4 className="mb-1">Users</h4>
-                    <a
-                      href="javascript:;"
-                      data-bs-toggle="modal"
-                      data-bs-target="#addRoleModal"
-                      className="role-edit-modal"
-                    >
-                      <span>Edit Role</span>
-                    </a>
-                  </div>
-                  <a href="javascript:void(0);" className="text-muted">
-                    <i className="ti ti-copy ti-md"></i>
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
+          <UserCount />
 
           <div className="col-12">
             <div className="card">
@@ -293,13 +51,48 @@ const UserPage = () => {
                     <tr>
                       <th></th>
                       <th>User</th>
+                      <th>Email</th>
                       <th>Role</th>
-                      <th>Plan</th>
-                      <th>Billing</th>
                       <th>Status</th>
                       <th>Actions</th>
                     </tr>
                   </thead>
+                  <tbody>
+                    {users.map((user) => {
+                      return (
+                        <tr>
+                          <td className="py-3">
+                            <img
+                              src="/admin/assets/img/avatars/1.png"
+                              className="rounded-circle"
+                              width="24"
+                              alt="..."
+                            />
+                          </td>
+                          <td className="py-3">{user.name}</td>
+                          <td className="py-3">
+                            <a href="mailto:">{user.email}</a>
+                          </td>
+                          <td className="py-3">{user.role}</td>
+                          <td className="py-3">
+                            <span className="badge bg-success">Active</span>
+                          </td>
+                          <td className="py-3">
+                            <div className="btn-group">
+                              <select
+                                className="form-select"
+                                onChange={(e) => updatedUser(e, user.id)}
+                              >
+                                <option value="admin">Admin</option>
+                                <option value="student">Student</option>
+                                <option value="coach">Coach</option>
+                              </select>
+                            </div>
+                          </td>
+                        </tr>
+                      );
+                    })}
+                  </tbody>
                 </table>
               </div>
             </div>
