@@ -6,7 +6,8 @@ import { useEffect, useState } from "react";
 
 export default function Navbar() {
   let pathName=usePathname()
-  if(pathName=="/" || pathName=="/login" || pathName=="/signup"){
+  if(pathName=="/" || pathName=="/login" || pathName=="/signup"|| pathName.startsWith('/admin')
+  ){
     return <></>
   }
   let [todayDate, setTodayDate] = useState({
