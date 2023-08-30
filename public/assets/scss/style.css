@@ -1148,4 +1148,260 @@ img {
   font-family: "SF Pro Display";
   color: #ffffff;
   font-weight: 400;
+}
+
+.navbar-main .navbar {
+  background: #2c2c2c;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+.navbar-main .navbar .navbar-brand img {
+  max-width: 170px;
+}
+.navbar-main .navbar ul.navbar-nav {
+  align-items: center;
+}
+.navbar-main .navbar ul.navbar-nav li.nav-item .nav-link {
+  color: #fff;
+  font-size: 14px;
+  line-height: 16.71px;
+  font-family: "SF Pro Display";
+  text-transform: capitalize;
+  padding-left: 16px;
+  padding-right: 16px;
+}
+.navbar-main .navbar ul.navbar-nav li.nav-item .nav-link.mastermind-link {
+  font-weight: 700;
+  margin-right: 16px;
+  color: #131313;
+  background-color: #ffc24c;
+}
+.navbar-main .navbar ul.navbar-nav li.nav-item .dropdown-menu[data-bs-popper] {
+  left: unset;
+  right: 0;
+  background: #2c2c2c;
+}
+.navbar-main .navbar ul.navbar-nav li.nav-item .dropdown-menu[data-bs-popper] .dropdown-item {
+  color: #fff;
+  font-size: 14px;
+  line-height: 16.71px;
+  font-family: "SF Pro Display";
+  text-transform: capitalize;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+.navbar-main .navbar ul.navbar-nav li.nav-item .dropdown-menu[data-bs-popper] .dropdown-item:hover {
+  background-color: #1a1b1c;
+  color: #fff;
+}
+.navbar-main .navbar ul.navbar-nav li.nav-item .dropdown-toggle::after {
+  display: none;
+}
+
+.newdashboard-main {
+  margin: 30px 0;
+}
+.newdashboard-main .calendar-card .calendar-title {
+  border-radius: 5px 5px 0px 0px;
+  border: 1px solid #363636;
+  background: #ffc24c;
+  padding: 15px 28px;
+}
+.newdashboard-main .calendar-card .calendar-title h3 {
+  margin: 0;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 16px;
+  color: #171616;
+  font-family: "space_monoregular";
+}
+.newdashboard-main .calendar-card .calendar-grid-main {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+}
+.newdashboard-main .calendar-card .calendar-grid-main .single-day-box {
+  border-right: 1px solid #363636;
+}
+.newdashboard-main .calendar-card .calendar-grid-main .single-day-box .day-title {
+  background: #292a2a;
+  padding: 8px 16px;
+  text-align: center;
+  color: #fff;
+  font-size: 14px;
+  text-transform: capitalize;
+  font-weight: 700;
+  font-family: "SF Pro Display";
+  line-height: 16.71px;
+}
+.newdashboard-main .calendar-card .calendar-grid-main .single-day-box .single-task {
+  background: #292a2a;
+  padding: 13px;
+  border-top: 1px solid #363636;
+  font-size: 12px;
+  font-weight: 400;
+  font-family: "SF Pro Display";
+  color: #ffffff;
+  line-height: 14.32px;
+}
+.newdashboard-main .calendar-card .calendar-grid-main .single-day-box .single-task .time {
+  color: #ffc24c;
+  font-family: "space_monoregular";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 16px;
+  margin-bottom: 10px;
+}
+.newdashboard-main .calendar-card .calendar-grid-main .single-day-box .single-task p {
+  color: #fff;
+  font-family: "space_monoregular";
+  font-size: 14px;
+  font-style: normal;
+  font-weight: normal;
+  margin-bottom: 10px;
+}
+.newdashboard-main .calendar-card .calendar-grid-main .single-day-box .single-task p:nth-child(3) {
+  margin: 0;
+}
+.newdashboard-main .calendar-card .calendar-grid-main .single-day-box .single-task:last-child {
+  margin-bottom: 0;
+}
+.newdashboard-main .calendar-card .calendar-grid-main .single-day-box.active .day-title {
+  background: #7a00f3;
+}
+.newdashboard-main .calendar-card .calendar-grid-main .single-day-box.active .single-task {
+  background: #7a00f3;
+}
+.newdashboard-main .dashboard-sidebar {
+  background: #2c2c2c;
+  min-height: 594px;
+  border-radius: 16px;
+  -webkit-border-radius: 16px;
+  -moz-border-radius: 16px;
+  -ms-border-radius: 16px;
+  -o-border-radius: 16px;
+  height: 100%;
+}
+.newdashboard-main .dashboard-sidebar .sidebar-content {
+  padding: 20px 17px;
+}
+.newdashboard-main .dashboard-sidebar .sidebar-content .form-group {
+  margin-bottom: 10px;
+}
+.newdashboard-main .dashboard-sidebar .sidebar-content .form-group .form-control {
+  background: transparent;
+  border: none;
+  outline: none;
+  font-size: 16px;
+  font-weight: 700;
+  font-family: "space_monoregular";
+}
+.newdashboard-main .dashboard-sidebar .sidebar-content .form-group .form-control:focus {
+  outline: none;
+  box-shadow: none;
+}
+.newdashboard-main .dashboard-sidebar .sidebar-content .form-group ::-moz-placeholder {
+  color: #fff;
+  text-transform: capitalize;
+  border: none;
+}
+.newdashboard-main .dashboard-sidebar .sidebar-content .form-group ::placeholder {
+  color: #fff;
+  text-transform: capitalize;
+  border: none;
+}
+.newdashboard-main .dashboard-sidebar .sidebar-content .form-group textarea {
+  font-size: 16px;
+  font-weight: 700;
+  font-family: "space_monoregular";
+  color: #fff;
+}
+.newdashboard-main .dashboard-sidebar .sidebar-content .project-no {
+  margin-bottom: 10px;
+  font-size: 16px;
+  font-weight: 700;
+  font-family: "space_monoregular";
+  color: #fff;
+  text-transform: capitalize;
+}
+.newdashboard-main .dashboard-sidebar .sidebar-content .project-name {
+  margin-bottom: 10px;
+  font-size: 19px;
+  font-weight: 700;
+  font-family: "space_monoregular";
+  color: #fff;
+  text-transform: capitalize;
+}
+.newdashboard-main .dashboard-sidebar .sidebar-content p.project-desc {
+  margin-bottom: 15px;
+  font-size: 14px;
+  font-weight: 400;
+  font-family: "space_monoregular";
+  color: #ababab;
+}
+.newdashboard-main .dashboard-sidebar .sidebar-content .project-counter {
+  border-top: 1px solid #ababab;
+  border-bottom: 1px solid #ababab;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  padding: 10px 0;
+  margin-bottom: 20px;
+}
+.newdashboard-main .dashboard-sidebar .sidebar-content .project-counter .single-box {
+  flex-basis: 33.33%;
+  text-align: center;
+}
+.newdashboard-main .dashboard-sidebar .sidebar-content .project-counter .single-box .counter {
+  color: #fff;
+  font-family: "space_monoregular";
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  margin-bottom: 4px;
+}
+.newdashboard-main .dashboard-sidebar .sidebar-content .project-counter .single-box .title {
+  color: #fff;
+  font-family: "SF Pro Display";
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  text-transform: capitalize;
+}
+.newdashboard-main .dashboard-sidebar .sidebar-content a.journey-btn {
+  padding: 8px 16px;
+  background: #7a00f3;
+  border-radius: 8px;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  -ms-border-radius: 8px;
+  -o-border-radius: 8px;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  text-transform: uppercase;
+  display: block;
+  width: 100%;
+  color: #fff;
+  margin-bottom: 20px;
+}
+.newdashboard-main .dashboard-sidebar .sidebar-content a.story-btn {
+  padding: 8px 16px;
+  border-radius: 8px;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  -ms-border-radius: 8px;
+  -o-border-radius: 8px;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  text-transform: uppercase;
+  display: block;
+  width: 100%;
+  background: #ffc24c;
 }/*# sourceMappingURL=style.css.map */
