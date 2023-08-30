@@ -1483,3 +1483,149 @@ img {
     }
   }
 }
+
+.quest-main {
+  margin: 30px 0;
+  .container {
+    max-width: 1230px;
+  }
+  .golden-rule {
+    text-align: center;
+    max-width: 1051px;
+    margin: 0px auto;
+    margin-bottom: 70px;
+    h3 {
+      color: #fff;
+      font-size: 28px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: normal;
+      font-family: $space-font;
+      text-transform: capitalize;
+      margin-bottom: 20px;
+    }
+    p.warning-box {
+      border: 1px solid #ffc24c;
+      padding: 12px 24px;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: normal;
+      color: #fff;
+      font-family: $space-font;
+      line-height: 1.5;
+    }
+  }
+  .add-projects {
+    text-align: center;
+    h4 {
+      font-size: 24px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: normal;
+      color: #fff;
+      font-family: $sf-font;
+      text-transform: capitalize;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .modal-btn {
+      padding: 16px 24px;
+      border-radius: 8px;
+      background: #7c692e;
+      font-size: 18px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: normal;
+      font-family: $sf-font;
+      color: #fff;
+      text-transform: capitalize;
+      border: none;
+      i {
+        margin-left: 5px;
+      }
+      &:focus {
+        box-shadow: none;
+        outline: none;
+      }
+    }
+  }
+}
+
+.quest-modal {
+  .modal-header {
+    background: #262626;
+    border-radius: 8px 8px 0px 0px;
+    border: none;
+    .btn-close {
+      background-color: #ffc24c;
+      opacity: 1;
+    }
+  }
+  .modal-body {
+    border-radius: 0px 0px 0px 5px;
+    background: #7c692e;
+    padding: 16px 24px;
+    h4 {
+      color: #fff;
+      font-size: 24px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: normal;
+      font-family: $space-font;
+      margin-bottom: 10px;
+    }
+    textarea {
+      background: #262626;
+      border-color: #262626;
+      color: #828282;
+      font-family: $space-font;
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+      margin-bottom: 20px;
+      &:focus {
+        box-shadow: none;
+        outline: none;
+      }
+    }
+    ::placeholder {
+      color: #828282;
+      font-family: $space-font;
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+    }
+    .form-control {
+      background: #262626;
+      border-color: #262626;
+      color: #828282;
+      font-family: $space-font;
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+      margin-bottom: 20px;
+      border-radius: 0;
+      -webkit-border-radius: 0;
+      -moz-border-radius: 0;
+      -ms-border-radius: 0;
+      -o-border-radius: 0;
+      padding: 12px 17px;
+      &:focus {
+        box-shadow: none;
+        outline: none;
+      }
+    }
+    .form-check-label {
+      color: #fff;
+      font-family: $space-font;
+      font-size: 12px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: normal;
+    }
+  }
+}

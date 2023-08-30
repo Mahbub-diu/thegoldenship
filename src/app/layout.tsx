@@ -19,14 +19,20 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <title>Vision Flow Web Application</title>
+        <title>The Golden Ship</title>
         <link
           rel="icon"
           type="image/x-icon"
           href="assets/images/icon/flowicon.png"
         />
         <link rel="stylesheet" href="assets/fonts/fonts.css" />
-
+        <link
+          rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+          integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+          crossOrigin="anonymous"
+          referrerPolicy="no-referrer"
+        />
         <link
           href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
           rel="stylesheet"

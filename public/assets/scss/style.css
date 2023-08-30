@@ -1404,4 +1404,156 @@ img {
   display: block;
   width: 100%;
   background: #ffc24c;
+}
+
+.quest-main {
+  margin: 30px 0;
+}
+.quest-main .container {
+  max-width: 1230px;
+}
+.quest-main .golden-rule {
+  text-align: center;
+  max-width: 1051px;
+  margin: 0px auto;
+  margin-bottom: 70px;
+}
+.quest-main .golden-rule h3 {
+  color: #fff;
+  font-size: 28px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  font-family: "space_monoregular";
+  text-transform: capitalize;
+  margin-bottom: 20px;
+}
+.quest-main .golden-rule p.warning-box {
+  border: 1px solid #ffc24c;
+  padding: 12px 24px;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  color: #fff;
+  font-family: "space_monoregular";
+  line-height: 1.5;
+}
+.quest-main .add-projects {
+  text-align: center;
+}
+.quest-main .add-projects h4 {
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  color: #fff;
+  font-family: "SF Pro Display";
+  text-transform: capitalize;
+  text-align: center;
+  margin-bottom: 20px;
+}
+.quest-main .add-projects .modal-btn {
+  padding: 16px 24px;
+  border-radius: 8px;
+  background: #7c692e;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  font-family: "SF Pro Display";
+  color: #fff;
+  text-transform: capitalize;
+  border: none;
+}
+.quest-main .add-projects .modal-btn i {
+  margin-left: 5px;
+}
+.quest-main .add-projects .modal-btn:focus {
+  box-shadow: none;
+  outline: none;
+}
+
+.quest-modal .modal-header {
+  background: #262626;
+  border-radius: 8px 8px 0px 0px;
+  border: none;
+}
+.quest-modal .modal-header .btn-close {
+  background-color: #ffc24c;
+  opacity: 1;
+}
+.quest-modal .modal-body {
+  border-radius: 0px 0px 0px 5px;
+  background: #7c692e;
+  padding: 16px 24px;
+}
+.quest-modal .modal-body h4 {
+  color: #fff;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  font-family: "space_monoregular";
+  margin-bottom: 10px;
+}
+.quest-modal .modal-body textarea {
+  background: #262626;
+  border-color: #262626;
+  color: #828282;
+  font-family: "space_monoregular";
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  margin-bottom: 20px;
+}
+.quest-modal .modal-body textarea:focus {
+  box-shadow: none;
+  outline: none;
+}
+.quest-modal .modal-body ::-moz-placeholder {
+  color: #828282;
+  font-family: "space_monoregular";
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+.quest-modal .modal-body ::placeholder {
+  color: #828282;
+  font-family: "space_monoregular";
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+.quest-modal .modal-body .form-control {
+  background: #262626;
+  border-color: #262626;
+  color: #828282;
+  font-family: "space_monoregular";
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  margin-bottom: 20px;
+  border-radius: 0;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  -ms-border-radius: 0;
+  -o-border-radius: 0;
+  padding: 12px 17px;
+}
+.quest-modal .modal-body .form-control:focus {
+  box-shadow: none;
+  outline: none;
+}
+.quest-modal .modal-body .form-check-label {
+  color: #fff;
+  font-family: "space_monoregular";
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
 }/*# sourceMappingURL=style.css.map */
