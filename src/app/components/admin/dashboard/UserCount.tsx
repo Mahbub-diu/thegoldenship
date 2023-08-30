@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import React, { useEffect, useState } from "react";
 
 export const UserCount = () => {
@@ -6,7 +6,6 @@ export const UserCount = () => {
     totalStudent: 0,
     totalCoach: 0,
     totalAdmin: 0,
-    totalUsers: [],
   });
   useEffect(() => {
     fetch("/api/admin/dashboard", {
@@ -14,7 +13,12 @@ export const UserCount = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        setCountOfUser(data);
+        console.log(data);
+        setCountOfUser({
+          totalStudent: data.totalStudent,
+          totalCoach: data.totalCoach,
+          totalAdmin: data.totalAdmin,
+        });
       })
       .catch((err) => {
         console.log(err);
@@ -26,7 +30,9 @@ export const UserCount = () => {
         <div className="card">
           <div className="card-body">
             <div className="d-flex justify-content-between">
-              <h6 className="fw-normal mb-2">Total {countOfUser.totalAdmin} users</h6>
+              <h6 className="fw-normal mb-2">
+                Total {countOfUser.totalAdmin} users
+              </h6>
               <ul className="list-unstyled d-flex align-items-center avatar-group mb-0">
                 <li
                   data-bs-toggle="tooltip"
@@ -119,7 +125,9 @@ export const UserCount = () => {
         <div className="card">
           <div className="card-body">
             <div className="d-flex justify-content-between">
-              <h6 className="fw-normal mb-2">Total {countOfUser.totalCoach} users</h6>
+              <h6 className="fw-normal mb-2">
+                Total {countOfUser.totalCoach} users
+              </h6>
               <ul className="list-unstyled d-flex align-items-center avatar-group mb-0">
                 <li
                   data-bs-toggle="tooltip"
@@ -212,7 +220,9 @@ export const UserCount = () => {
         <div className="card">
           <div className="card-body">
             <div className="d-flex justify-content-between">
-              <h6 className="fw-normal mb-2">Total {countOfUser.totalStudent} users</h6>
+              <h6 className="fw-normal mb-2">
+                Total {countOfUser.totalStudent} users
+              </h6>
               <ul className="list-unstyled d-flex align-items-center avatar-group mb-0">
                 <li
                   data-bs-toggle="tooltip"
