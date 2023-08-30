@@ -7,7 +7,15 @@ generator client {
 
 datasource db {
   provider = "mysql"
+<<<<<<< HEAD
+<<<<<<< HEAD
+  url      = "mysql://root:password@localhost:3306/visionflow"
+=======
+  url      = "mysql://root:@localhost:3306/thegoldenship"
+>>>>>>> 9cac60f794ea94721b8996abe68451aa402b21e6
+=======
   url      = "mysql://root:@localhost:3306/visionflow"
+>>>>>>> 59448329b12d26fb221827fcbe5e033af93f9588
 }
 
 model Task {
