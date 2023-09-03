@@ -931,6 +931,7 @@ img {
   -ms-border-radius: 10px;
   -o-border-radius: 10px;
   padding: 20px;
+  margin-bottom: 20px;
 }
 .storyboard-main .story-input-main .build-title {
   padding: 12px 24px;
@@ -942,10 +943,13 @@ img {
   -ms-border-radius: 100px;
   -o-border-radius: 100px;
   display: inline-block;
-  font-size: 24px;
+  font-size: 20px;
   font-weight: 700;
   line-height: 28.64px;
-  font-family: "SF Pro Display";
+  font-family: "space_monoregular";
+  margin-bottom: 20px;
+}
+.storyboard-main .story-input-main .form-group {
   margin-bottom: 20px;
 }
 .storyboard-main .story-input-main .form-group textarea {
@@ -954,6 +958,7 @@ img {
   color: #fff;
   min-height: 100px;
   margin-bottom: 10px;
+  font-family: "space_monoregular";
 }
 .storyboard-main .story-input-main .form-group textarea:focus {
   box-shadow: none;
@@ -964,14 +969,14 @@ img {
   font-weight: 400;
   font-size: 14px;
   line-height: 24px;
-  font-family: "SF Pro Display";
+  font-family: "space_monoregular";
 }
 .storyboard-main .story-input-main .form-group ::placeholder {
   color: #7f8283;
   font-weight: 400;
   font-size: 14px;
   line-height: 24px;
-  font-family: "SF Pro Display";
+  font-family: "space_monoregular";
 }
 .storyboard-main .story-input-main .form-group p {
   color: #7f8283;

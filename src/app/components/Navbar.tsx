@@ -31,7 +31,7 @@ export default function Navbar() {
     <section className="navbar-main">
       <nav className="navbar navbar-expand-lg">
         <div className="container">
-          <a className="navbar-brand" href="#">
+          <a className="navbar-brand" href="/">
             <img src="assets/images/logo.png" alt="icon" />
           </a>
           <button
@@ -48,39 +48,39 @@ export default function Navbar() {
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav justify-content-center m-auto">
               <li className="nav-item">
-                <a className="nav-link " href="#">
+                <Link className="nav-link " href="/">
                   dashboard
-                </a>
+                </Link>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="#">
+                <Link className="nav-link" href="/quest">
                   quest
-                </a>
+                </Link>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="#">
+                <Link className="nav-link" href="/story">
                   story
-                </a>
+                </Link>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="#">
+                <Link className="nav-link" href="/sprints">
                   journey
-                </a>
+                </Link>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="#">
+                <Link className="nav-link" href="#">
                   leaderboard
-                </a>
+                </Link>
               </li>
             </ul>
             <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
               <li className="nav-item">
-                <a className="nav-link mastermind-link" href="#">
+                <Link className="nav-link mastermind-link" href="#">
                   enter mastermind
-                </a>
+                </Link>
               </li>
               <li className="nav-item dropdown">
-                <a
+                <Link
                   className="nav-link dropdown-toggle"
                   href="#"
                   role="button"
@@ -88,23 +88,23 @@ export default function Navbar() {
                   aria-expanded="false"
                 >
                   <img src="assets/images/icon/user-icon.png" alt="icon" />
-                </a>
+                </Link>
                 <ul className="dropdown-menu">
                   <li>
-                    <a className="dropdown-item" href="#">
+                    <Link className="dropdown-item" href="#">
                       my profile
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a className="dropdown-item" href="#">
+                    <Link className="dropdown-item" href="#">
                       setting
-                    </a>
+                    </Link>
                   </li>
 
                   <li>
-                    <a className="dropdown-item" href="#">
+                    <Link className="dropdown-item" href="#">
                       log out
-                    </a>
+                    </Link>
                   </li>
                 </ul>
               </li>

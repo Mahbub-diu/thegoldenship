@@ -963,6 +963,7 @@ img {
     -ms-border-radius: 10px;
     -o-border-radius: 10px;
     padding: 20px;
+    margin-bottom: 20px;
 
     .build-title {
       padding: 12px 24px;
@@ -974,21 +975,22 @@ img {
       -ms-border-radius: 100px;
       -o-border-radius: 100px;
       display: inline-block;
-      font-size: 24px;
+      font-size: 20px;
       font-weight: 700;
       line-height: 28.64px;
-      font-family: $sf-font;
+      font-family: $space-font;
       margin-bottom: 20px;
     }
 
     .form-group {
+      margin-bottom: 20px;
       textarea {
         background: #222424;
         border: none;
         color: #fff;
         min-height: 100px;
         margin-bottom: 10px;
-
+        font-family: $space-font;
         &:focus {
           @include common-focus-action;
         }
@@ -999,7 +1001,7 @@ img {
         font-weight: 400;
         font-size: 14px;
         line-height: 24px;
-        font-family: $sf-font;
+        font-family: $space-font;
       }
 
       p {
