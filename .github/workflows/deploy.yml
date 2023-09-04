@@ -6,7 +6,7 @@ on:
   pull_request:
     branches: [ master ]
 
-    
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
@@ -17,7 +17,7 @@ jobs:
       with:
         host: '89.117.75.222'
         username: 'root'
-        port: 1024
+        port: 22
         key: ${{ secrets.SERVER_SSH }}
         command_timeout: 200m
         script: 'cd /var/www/html/thegoldenship && ./.scripts/deploy.sh'
