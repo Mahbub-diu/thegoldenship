@@ -8,6 +8,13 @@ on:
 
     
 jobs:
+  veracode:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/setup-node@v3
+      with:
+        node-version: 16.19.0
+    - run: npm ci
   deploy:
     runs-on: ubuntu-latest
     steps:
