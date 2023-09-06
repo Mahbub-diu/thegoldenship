@@ -19,5 +19,4 @@ jobs:
         username: 'root'
         port: 22
         key: ${{ secrets.SERVER_SSH }}
-        command_timeout: 200m
         script: 'cd /var/www/html/thegoldenship && ./.scripts/deploy.sh'
