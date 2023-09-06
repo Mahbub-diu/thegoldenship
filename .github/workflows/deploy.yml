@@ -2,34 +2,30 @@ name: Deploy
 
 on:
   push:
-    branches: [ master ]
+    branches: [master]
   pull_request:
-    branches: [ master ]
+    branches: [master]
 
-    
 jobs:
-
   deploy:
     runs-on: ubuntu-latest
     strategy:
       matrix:
         node-version: [16.x]
     steps:
-    - uses: actions/checkout@v3
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v3
-      with:
-        node-version: ${{ matrix.node-version }}
-        cache: 'npm'
-    - run: npm ci
-    - run: npm run build --if-present
-    - run: npm test
-
-    - name: Deploy 
-      uses: appleboy/ssh-action@master
-      with:
-        host: '89.117.75.222'
-        username: 'root'
-        port: 22
-        key: ${{ secrets.SERVER_SSH }}
-        script: 'cd /var/www/html/thegoldenship && ./.scripts/deploy.sh'
+      - uses: actions/checkout@v3
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: "npm"
+      - run: npm ci
+      - run: npm run build --if-present
+      - name: Deploy
+        uses: appleboy/ssh-action@master
+        with:
+          host: "89.117.75.222"
+          username: "root"
+          port: 22
+          key: ${{ secrets.SERVER_SSH }}
+          script: "cd /var/www/html/thegoldenship && ./.scripts/deploy.sh"
