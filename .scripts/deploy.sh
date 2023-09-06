@@ -4,12 +4,10 @@ set -e
 echo "Deploying started..."
 git pull origin master
 echo "Installing dependencies..." 
-
-
-
 export NVM_DIR=~/.nvm
   source ~/.nvm/nvm.sh
   npm --help
+echo "Installing dependencies..."
 npm install --yes
 echo "Building..."
 npm run build
