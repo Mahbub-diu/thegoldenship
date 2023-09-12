@@ -40,4 +40,15 @@ model User {
   createdAt  DateTime @default(now()) @map(name: "created_at")
   updatedAt  DateTime @updatedAt @map(name: "updated_at")
   tasks      Task[]
+  Story      Story[]
+}
+
+model Story {
+  id        Int      @id @default(autoincrement())
+  title     String
+  content   String?
+  userId    String?
+  user      User?    @relation(fields: [userId], references: [id])
+  createdAt DateTime @default(now()) @map(name: "created_at")
+  updatedAt DateTime @updatedAt @map(name: "updated_at")
 }
