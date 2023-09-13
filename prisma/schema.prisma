@@ -48,6 +48,7 @@ model Story {
   title     String
   content   String?
   userId    String?
+  completed Boolean? @default(false)
   user      User?    @relation(fields: [userId], references: [id])
   createdAt DateTime @default(now()) @map(name: "created_at")
   updatedAt DateTime @updatedAt @map(name: "updated_at")
