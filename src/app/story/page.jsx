@@ -39,7 +39,40 @@ const page = () => {
         });
       });
   };
+  const updateStory = (e, completed = false, storyId) => {
+    e.preventDefault();
+    if (!completed) {
+      if (!story.title || !story.content) {
+        toast.error("Please fill in all fields");
+        return false;
+      }
+    }
 
+    fetch("/api/story", {
+      method: "PUT",
+      body: JSON.stringify({ ...story, completed, storyId }),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+      .then((res) => res.json())
+      .then((story) => {
+        setStories(
+          stories.map((sto) => {
+            if (sto.id == story.id) {
+              return story;
+            }
+            return sto;
+          })
+        );
+      })
+      .finally(() => {
+        setStory({
+          title: null,
+          content: null,
+        });
+      });
+  };
   useEffect(() => {
     fetchStories();
   }, []);
@@ -66,7 +99,7 @@ const page = () => {
                               }}
                               aria-label="JavaScript 71.7"
                               className={
-                               sto?.completed
+                                sto?.completed
                                   ? "Progress-item partent color-bg-success-emphasis"
                                   : "Progress-item partent "
                               }
@@ -190,10 +223,30 @@ const page = () => {
                           value={stor.content}
                         ></textarea>
                         <div class="text-end">
-                          <button class="btn complete-btn">
-                            Complete
-                            <img src="assets/images/icon/plus_w.png" alt="" />
-                          </button>
+                          {!stor?.completed && (
+                            <>
+                              <button
+                                class="btn complete-btn mr-3"
+                                type="submit"
+                              >
+                                Update
+                                <img
+                                  src="assets/images/icon/plus_w.png"
+                                  alt=""
+                                />
+                              </button>{" "}
+                              <button
+                                class="btn complete-btn ml-3"
+                                onClick={(e) => updateStory(e, true, stor.id)}
+                              >
+                                Complete
+                                <img
+                                  src="assets/images/icon/plus_w.png"
+                                  alt=""
+                                />
+                              </button>
+                            </>
+                          )}
                         </div>
                       </div>
                     </div>
