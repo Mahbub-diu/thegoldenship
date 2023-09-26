@@ -1,6 +1,7 @@
 "use client";
 import React, { use, useEffect } from "react";
 import { toast } from "react-toastify";
+import StoryCard from "../components/story/StoryCard";
 
 const page = () => {
   let [stories, setStories] = React.useState([]);
@@ -39,39 +40,33 @@ const page = () => {
         });
       });
   };
-  const updateStory = (e, completed = false, storyId) => {
+  const updateStory = (e, completed = false, storyId,updateStoryData) => {
     e.preventDefault();
     if (!completed) {
-      if (!story.title || !story.content) {
+      if (!updateStoryData.title || !updateStoryData.content) {
         toast.error("Please fill in all fields");
         return false;
       }
     }
-
+console.log(updateStoryData)
     fetch("/api/story", {
       method: "PUT",
-      body: JSON.stringify({ ...story, completed, storyId }),
+      body: JSON.stringify({ ...updateStoryData, completed, storyId }),
       headers: {
         "Content-Type": "application/json",
       },
     })
       .then((res) => res.json())
-      .then((story) => {
+      .then((data) => {
         setStories(
           stories.map((sto) => {
-            if (sto.id == story.id) {
-              return story;
+            if (sto.id == data.id) {
+              return data;
             }
             return sto;
           })
         );
       })
-      .finally(() => {
-        setStory({
-          title: null,
-          content: null,
-        });
-      });
   };
   useEffect(() => {
     fetchStories();
@@ -196,60 +191,13 @@ const page = () => {
                 </div>
               </div>
               <form action="">
-                {stories.map((stor) => {
+                {stories?.map((stor) => {
                   return (
-                    <div class="story-input-main">
-                      <div class="build-title">
-                        {" "}
-                        <input
-                          style={{
-                            background: "transparent",
-                            outline: "none",
-                            width: "100%",
-                            border: "none",
-                            height: "100%",
-                            color: "white",
-                          }}
-                          value={stor.title}
-                          placeholder="What do you want to build?"
-                        />
-                      </div>
-
-                      <div class="form-group">
-                        <textarea
-                          class="form-control"
-                          placeholder="Type here ..."
-                          id=""
-                          value={stor.content}
-                        ></textarea>
-                        <div class="text-end">
-                          {!stor?.completed && (
-                            <>
-                              <button
-                                class="btn complete-btn mr-3"
-                                type="submit"
-                              >
-                                Update
-                                <img
-                                  src="assets/images/icon/plus_w.png"
-                                  alt=""
-                                />
-                              </button>{" "}
-                              <button
-                                class="btn complete-btn ml-3"
-                                onClick={(e) => updateStory(e, true, stor.id)}
-                              >
-                                Complete
-                                <img
-                                  src="assets/images/icon/plus_w.png"
-                                  alt=""
-                                />
-                              </button>
-                            </>
-                          )}
-                        </div>
-                      </div>
-                    </div>
+                    <StoryCard
+                      key={stor.id}
+                      story={stor}
+                      updateStory={updateStory}
+                    />
                   );
                 })}
               </form>
